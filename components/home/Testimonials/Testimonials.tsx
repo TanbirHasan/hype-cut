@@ -134,8 +134,8 @@ const Testimonials = () => {
               Clients Say
             </h2>
           </div>
-          <div className="max-w-md">
-            <p className="text-sm sm:text-base lg:text-xl text-[#404040] leading-relaxed">
+          <div className="max-w-lg">
+            <p className="text-sm sm:text-base lg:text-2xl text-[#404040] leading-relaxed">
               From YouTubers to startups, our clients share how our editing and
               strategy helped them scale their content and audience.
             </p>

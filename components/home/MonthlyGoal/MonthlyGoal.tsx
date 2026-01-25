@@ -74,7 +74,7 @@ const MonthlyGoal = () => {
             </h2>
           </div>
           <div className="flex-1 max-w-xl">
-            <p className="text-sm sm:text-base lg:text-lg text-[#404040] leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-2xl text-[#404040] leading-relaxed">
               Spend just a few hours recording your raw footage. Our team edits,
               captions, optimizes, and delivers platform-ready clips so you can
               focus on growth.
@@ -83,7 +83,7 @@ const MonthlyGoal = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           {services.map((service, index) => (
             <motion.div
               key={service.id}

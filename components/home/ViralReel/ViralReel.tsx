@@ -108,7 +108,7 @@ const ViralReel = () => {
 
   return (
     <motion.section
-      className="relative py-16 lg:py-24 px-6 lg:px-8 bg-white"
+      className="relative py-0 md:py-8 px-6 lg:px-8 bg-white"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}

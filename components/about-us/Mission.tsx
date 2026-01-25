@@ -5,7 +5,7 @@ import Image from "next/image";
 const Mission = () => {
   return (
     <section className="w-full bg-[#F8F8F8] py-16 lg:py-24 px-4">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-7xl font-semibold text-[#1A1A1A] mb-4 leading-tight">

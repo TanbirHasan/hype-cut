@@ -5,8 +5,8 @@ import { InlineWidget } from "react-calendly";
 
 const ConsultationBooking = () => {
   return (
-    <div className="min-h-screen bg-[#F7F7F7] py-12 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-[#F7F7F7] py-12">
+      <div className="max-w-8xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-3">
@@ -20,7 +20,7 @@ const ConsultationBooking = () => {
         </div>
 
         {/* Main Content */}
-        <div className="max-w-[920px] mx-auto">
+        <div className="max-w-230 mx-auto">
           <div className="bg-white rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.08)] overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr]">
               {/* Left Side - Info (Keep Your Design) */}
@@ -76,7 +76,7 @@ const ConsultationBooking = () => {
               </div>
 
               {/* Right Side - Calendly Widget */}
-              <div className="min-h-[600px]">
+              <div className="min-h-150">
                 <InlineWidget
                   url="https://calendly.com/theagentichub/30min"
                   styles={{

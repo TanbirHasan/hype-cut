@@ -13,8 +13,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#F5F5F5] pt-12 lg:pt-16 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-white pt-12 lg:pt-16 px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto">
         {/* Top Section - 3 Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16 pb-12 lg:pb-16">
           {/* Navigation Column */}
@@ -281,7 +281,7 @@ const Footer = () => {
         {/* Bottom Section - Copyright and Legal */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 py-6">
           <p className="text-[#121116] text-sm">
-            © 2025 Hypecut. All right reserved
+            © 2026 Hypecut. All right reserved
           </p>
           <div className="flex items-center gap-6">
             <Link

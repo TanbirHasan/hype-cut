@@ -88,7 +88,7 @@ const ViralReelTwo = () => {
   }, [emblaApi2]);
 
   return (
-    <section className="relative py-16 lg:py-24 px-6 lg:px-8 bg-white">
+    <section className="relative py-8 px-6 lg:px-8 bg-white">
       <div className="max-w-8xl mx-auto">
         {/* Second Carousel - Large Cards (600px) */}
         <div>

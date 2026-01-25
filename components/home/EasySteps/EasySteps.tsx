@@ -61,7 +61,7 @@ const EasySteps = () => {
       title: "We manage Social",
       description:
         "Spend just a few hours capturing your raw videos with ease.",
-      image: "/images/home/easy-steps/img-6.png",
+      image: "/images/home/easy-steps/img-5.png",
     },
   ];
 
@@ -94,7 +94,7 @@ const EasySteps = () => {
           >
             <Button
               asChild
-              className="py-6 px-8 rounded-full bg-[#EA1C31] hover:bg-[#c91729] text-white transition-all duration-300 h-auto font-medium text-base shadow-lg hover:shadow-xl"
+              className="py-3 px-8 text-base rounded-full bg-[#EA1C31] hover:bg-[#c91729] text-white transition-all duration-300 h-auto font-medium shadow-lg hover:shadow-xl"
             >
               <Link href="/contact-us">Shoot From Our Home</Link>
             </Button>
@@ -102,7 +102,7 @@ const EasySteps = () => {
             <Button
               asChild
               variant="outline"
-              className="py-6 px-8 rounded-full border-2 border-gray-300 bg-white text-[#121116] hover:bg-gray-50 transition-all duration-300 h-auto font-medium text-base"
+              className="py-3 px-8 rounded-full border-2 border-gray-300 bg-white text-[#121116] hover:bg-gray-50 transition-all duration-300 h-auto font-medium text-base"
             >
               <Link href="/contact-us">Shoot From Our Studio</Link>
             </Button>
@@ -110,7 +110,7 @@ const EasySteps = () => {
         </motion.div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {steps.map((step, index) => (
             <motion.div
               key={step.id}

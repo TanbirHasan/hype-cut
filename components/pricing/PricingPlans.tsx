@@ -26,16 +26,16 @@ const PricingCard = ({
 
       {/* Nested Tabs for Upfront/Monthly */}
       <Tabs defaultValue="upfront" className="w-full mb-8">
-        <TabsList className="bg-[#F4E8F4] p-1 sm:p-2 gap-2 w-full rounded-full">
+        <TabsList className="bg-[#F4E8F4] p-1 sm:p-2 gap-2 w-full rounded-full h-14! md:h-16!">
           <TabsTrigger
             value="upfront"
-            className="flex-1 py-2.5 sm:py-3.5 px-4 sm:px-6 h-auto rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-sm sm:text-base"
+            className="flex-1 py-2.5 px-4 sm:px-6 h-auto rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-sm sm:text-base"
           >
             Upfront
           </TabsTrigger>
           <TabsTrigger
             value="monthly"
-            className="flex-1 py-2.5 sm:py-3.5 px-4 sm:px-6 h-auto rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-sm sm:text-base"
+            className="flex-1 py-2.5 px-4 sm:px-6 h-auto rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-sm sm:text-base"
           >
             Monthly
           </TabsTrigger>

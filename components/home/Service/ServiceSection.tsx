@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import VideoPlayer from "@/components/ui/video-player";
+import VideoDialog from "@/components/ui/video-dialog";
 import { Play } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const ServicesSection = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
   const stats = [
     { value: "160+", label: "Projects" },
     { value: "100%", label: "Commitment" },
@@ -39,7 +43,7 @@ const ServicesSection = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-25">
+        <div className="space-y-12 sm:space-y-16 lg:space-y-25">
           <motion.div
             initial={{ opacity: 0, scale: 0.85, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -53,9 +57,15 @@ const ServicesSection = () => {
               {/* Ensure VideoPlayer has NO default controls */}
               <VideoPlayer youtubeVideoId={youtubeVideoId} noControls />
 
-              {/* Custom Figma overlay */}
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="relative w-[234px] h-[186px] rounded-[48px] bg-white/15 border border-white/40 backdrop-blur-[12px]"></div>
+              {/* Custom Figma overlay with play button */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <button
+                  onClick={() => setIsVideoOpen(true)}
+                  className="relative w-30 h-24 sm:w-45 sm:h-36 lg:w-58.5 lg:h-46.5 rounded-[24px] sm:rounded-[36px] lg:rounded-[48px] bg-white/15 border border-white/40 backdrop-blur-[12px] flex items-center justify-center cursor-pointer hover:bg-white/25 transition-all duration-300"
+                  aria-label="Play video"
+                >
+                 <Image src="/play.png" alt="Play" width={71} height={84} />
+                </button>
               </div>
             </div>
           </motion.div>
@@ -98,6 +108,14 @@ const ServicesSection = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Video Dialog */}
+      <VideoDialog
+        open={isVideoOpen}
+        onOpenChange={setIsVideoOpen}
+        type="youtube"
+        src={youtubeVideoId}
+      />
     </motion.section>
   );
 };

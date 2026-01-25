@@ -40,7 +40,7 @@ const Header = () => {
           </Link>
 
           {/* Navigation */}
-          <nav className="hidden lg:flex items-center gap-2 bg-slate-50 p-2 rounded-full shadow">
+          <nav className="hidden lg:flex items-center gap-2 bg-slate-50 p-2 rounded-full">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

@@ -399,7 +399,7 @@ const WorksPortfolio = () => {
 
   return (
     <section className="py-16 lg:py-24 px-6 lg:px-8 bg-gradient-to-br from-[#FAF4F8] via-[#FFF5FB] to-[#F8F0F5]">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-8xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl lg:text-6xl font-semibold text-[#121116] mb-4 tracking-tight">

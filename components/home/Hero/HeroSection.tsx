@@ -47,14 +47,14 @@ const HeroSection = () => {
             <Button
               asChild
               variant="outline"
-              className="py-2! px-6! rounded-full border-2 border-[#EA1C31] bg-transparent text-[#EA1C31] hover:bg-[#EA1C31] hover:text-white transition-all duration-300 h-auto font-medium"
+              className="py-2.5! px-6! rounded-full border border-[#EA1C31] bg-transparent text-[#EA1C31] hover:bg-[#EA1C31] hover:text-white transition-all duration-300 h-auto font-medium"
             >
               <Link href="/pricing">See Pricing</Link>
             </Button>
 
             <Button
               asChild
-              className="py-2! px-6! rounded-full bg-[#EA1C31] hover:bg-[#c91729] text-white transition-all duration-300 h-auto font-medium shadow-lg hover:shadow-xl"
+              className="py-2.5! px-6! rounded-full bg-[#EA1C31] hover:bg-[#c91729] text-white transition-all duration-300 h-auto font-medium shadow-lg hover:shadow-xl"
             >
               <Link href="/contact-us" className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
