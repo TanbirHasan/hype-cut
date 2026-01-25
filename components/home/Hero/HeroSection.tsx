@@ -5,13 +5,26 @@ import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import VideoCarousel from "./VideoCarousel";
 import { heroVideos } from "@/types/home";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen bg-[#f5f3f0] pt-16 pb-16 px-6 lg:px-8">
+    <motion.section
+      className="relative min-h-screen bg-[#f5f3f0] pt-16 pb-16 px-6 lg:px-8"
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <div className="mx-auto max-w-8xl">
         {/* Hero Text */}
-        <div className="text-center space-y-8 mb-12 lg:mb-16">
+        <motion.div
+          className="text-center space-y-8 mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <h1 className="text-[clamp(48px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.02em] text-center text-[#1a1a2e] mb-6">
             Your Premier Video
             <br />
@@ -24,7 +37,13 @@ const HeroSection = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+          >
             <Button
               asChild
               variant="outline"
@@ -42,15 +61,25 @@ const HeroSection = () => {
                 <span>Book a Call</span>
               </Link>
             </Button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Video Carousel */}
-        <div className="relative">
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{
+            duration: 0.7,
+            ease: "easeOut",
+            delay: 0.15,
+          }}
+        >
           <VideoCarousel videos={heroVideos} />
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

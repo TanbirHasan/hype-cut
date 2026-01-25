@@ -5,6 +5,7 @@ import ViralReel from "@/components/home/ViralReel";
 import EasySteps from "@/components/home/EasySteps";
 import MonthlyGoal from "@/components/home/MonthlyGoal";
 import Testimonials from "@/components/home/Testimonials/Testimonials";
+import ViralReelTwo from "@/components/home/ViralReelTwo/ViralReelTwo";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <ServicesSection />
       <Content />
       <ViralReel />
+      <ViralReelTwo />
       <EasySteps />
       <MonthlyGoal />
       <Testimonials />

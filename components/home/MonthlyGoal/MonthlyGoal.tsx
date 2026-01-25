@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface Service {
   id: number;
@@ -60,29 +61,41 @@ const MonthlyGoal = () => {
     <section className="relative py-16 lg:py-24 px-6 lg:px-8 bg-white">
       <div className="max-w-8xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12 lg:mb-16">
+        <motion.div
+          className="flex flex-col lg:flex-row justify-between items-start gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <div className="flex-1">
-            <h2 className="text-4xl lg:text-6xl font-bold text-[#121116] leading-tight">
-              3 Hours a Month,
-              <br />
-              We Handle All
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#121116] leading-tight">
+              3 Hours a Month, <span className="sm:block">We Handle All</span>
             </h2>
           </div>
           <div className="flex-1 max-w-xl">
-            <p className="text-base lg:text-lg text-[#404040] leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-lg text-[#404040] leading-relaxed">
               Spend just a few hours recording your raw footage. Our team edits,
               captions, optimizes, and delivers platform-ready clips so you can
               focus on growth.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {services.map((service, index) => (
+            <motion.div
               key={service.id}
-              className={`${service.bgColor} rounded-3xl p-8 lg:p-10 flex flex-col min-h-[400px] transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
+              className={`${service.bgColor} rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col min-h-80 sm:min-h-90 lg:min-h-100 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
+              initial={{ opacity: 0, y: 35, scale: 0.97 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{
+                duration: 0.45,
+                ease: "easeOut",
+                delay: 0.08 + index * 0.08,
+              }}
             >
               {/* Icon */}
               <div className="mb-8">
@@ -116,7 +129,7 @@ const MonthlyGoal = () => {
               >
                 {service.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -8,12 +8,12 @@ const Mission = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-[#1A1A1A] mb-4 leading-tight">
+          <h1 className="text-4xl lg:text-7xl font-semibold text-[#1A1A1A] mb-4 leading-tight">
             About Our
             <br />
             Company & Mission
           </h1>
-          <p className="text-base lg:text-lg text-[#666666] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base lg:text-2xl text-[#6B6B6B] font-medium max-w-3xl mx-auto leading-relaxed">
             As a proud subsidiary of The Founders Guild, we carry forward the
             mission of empowering entrepreneurs, startups, and businesses to
             amplify their voices and establish their brands on a global stage.
@@ -21,37 +21,42 @@ const Mission = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Left Side - Image */}
-          <div className="relative w-full">
-            <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden shadow-lg">
-              <Image
-                src="/images/about/about-us.png"
-                alt="About Our Company"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+          <div className="relative w-full h-auto lg:h-full min-h-100 lg:min-h-0">
+            <Image
+              src="/images/about/about-us.png"
+              alt="About Our Company"
+              fill
+              className="object-cover rounded-2xl"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
           </div>
 
           {/* Right Side - Content */}
-          <div className="space-y-6">
-            <h2 className="text-3xl lg:text-4xl xl:text-5xl font-bold text-[#1A1A1A] leading-tight">
+          <div className="space-y-6 flex flex-col">
+            <h2 className="text-3xl lg:text-6xl font-semibold text-[#1A1A1A] leading-tight lg:leading-[64px]">
               Together
               <br />
               we are strong
             </h2>
 
-            <div className="space-y-4 text-[#666666] text-base lg:text-lg leading-relaxed">
+            <div className="space-y-4 text-[#404040] text-base leading-6.5 flex-1">
               <p>
                 Born from The Founders Guild's commitment to fostering
-                entrepreneurial success, today's specialists in short-form video
+                entrepreneurial success, Hypecut specialises in short-form video
                 content that captures attention, drives engagement, and
                 positions businesses as leaders in their industries. We know
                 that in today's fast-paced digital landscape, seconds matter,
                 and that's why we focus on creating impactful, viral-ready
-                content tailored to your unique vision.
+                content tailored to your unique vision. Our Done For You Service
+                is designed with busy founders and business leaders in mind.
+                From custom script writing and professional studio recording in
+                Central London to cutting-edge editing and platform publishing,
+                we handle every detail. The result? High-performing content that
+                resonates with audiences and builds lasting connections. Join
+                us, and let's craft your story. Together, we'll take your brand
+                to the next level.
               </p>
 
               <p>

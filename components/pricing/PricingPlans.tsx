@@ -18,7 +18,7 @@ const PricingCard = ({
   features,
 }: PricingCardProps) => {
   return (
-    <div className="bg-white rounded-3xl p-8 lg:p-10 flex flex-col">
+    <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col">
       {/* Title */}
       <h3 className="text-2xl lg:text-3xl font-bold text-[#121116] mb-6">
         {title}
@@ -26,16 +26,16 @@ const PricingCard = ({
 
       {/* Nested Tabs for Upfront/Monthly */}
       <Tabs defaultValue="upfront" className="w-full mb-8">
-        <TabsList className="bg-[#F4E8F4] p-2 gap-2 w-full rounded-full h-18!">
+        <TabsList className="bg-[#F4E8F4] p-1 sm:p-2 gap-2 w-full rounded-full">
           <TabsTrigger
             value="upfront"
-            className="flex-1 py-3.5 px-6 h-16 rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-base"
+            className="flex-1 py-2.5 sm:py-3.5 px-4 sm:px-6 h-auto rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-sm sm:text-base"
           >
             Upfront
           </TabsTrigger>
           <TabsTrigger
             value="monthly"
-            className="flex-1 py-3.5 px-6 h-16 rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-base"
+            className="flex-1 py-2.5 sm:py-3.5 px-4 sm:px-6 h-auto rounded-full bg-transparent text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-transparent data-[state=inactive]:text-[#121116] transition-colors font-semibold text-sm sm:text-base"
           >
             Monthly
           </TabsTrigger>
@@ -44,11 +44,11 @@ const PricingCard = ({
         <TabsContent value="upfront" className="mt-6">
           {/* Price */}
           <div className="mb-8">
-            <div className="flex items-end gap-3">
-              <span className="text-5xl lg:text-6xl font-bold text-[#121116]">
+            <div className="flex flex-wrap items-end gap-2 sm:gap-3">
+              <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#121116]">
                 {price}
               </span>
-              <span className="text-sm text-[#750037] font-medium pb-2">
+              <span className="text-xs sm:text-sm text-[#750037] font-medium pb-1 sm:pb-2">
                 {saveText}
               </span>
             </div>
@@ -59,7 +59,7 @@ const PricingCard = ({
             <h4 className="text-lg font-bold text-[#121116] mb-4">
               What&apos;s included
             </h4>
-            <ul className="space-y-4">
+            <ul className="space-y-3 sm:space-y-4">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <Check className="w-5 h-5 text-[#750037] shrink-0 mt-0.5" />
@@ -74,15 +74,17 @@ const PricingCard = ({
           {/* Select Plan Button */}
           <Link
             href="/contact-us"
-            className="block w-full py-4 px-6 bg-[#F4E8F4] text-[#121116] rounded-full font-semibold text-center hover:bg-[#750037] hover:text-white transition-colors duration-300"
+            className="block w-full py-3.5 sm:py-4 px-6 bg-[#F4E8F4] text-[#121116] rounded-full font-semibold text-center text-sm sm:text-base hover:bg-[#750037] hover:text-white transition-colors duration-300"
           >
             Select Plan
           </Link>
         </TabsContent>
 
         <TabsContent value="monthly" className="mt-6">
-          <div className="text-center py-8">
-            <p className="text-[#404040]">Monthly payment option coming soon</p>
+          <div className="text-center py-6 sm:py-8">
+            <p className="text-sm text-[#404040]">
+              Monthly payment option coming soon
+            </p>
           </div>
         </TabsContent>
       </Tabs>
@@ -104,7 +106,7 @@ const SimplePricingCard = ({
   features,
 }: SimplePricingCardProps) => {
   return (
-    <div className="bg-white rounded-3xl p-8 lg:p-10 flex flex-col">
+    <div className="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col">
       {/* Title */}
       <h3 className="text-2xl lg:text-3xl font-bold text-[#121116] mb-6">
         {title}
@@ -113,7 +115,7 @@ const SimplePricingCard = ({
       {/* Price */}
       <div className="mb-8">
         <div className="flex items-end gap-2">
-          <span className="text-5xl lg:text-6xl font-bold text-[#121116]">
+          <span className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#121116]">
             {price}
           </span>
           <span className="text-base text-[#121116] pb-2">/monthly</span>
@@ -128,7 +130,7 @@ const SimplePricingCard = ({
         <h4 className="text-lg font-bold text-[#121116] mb-4">
           What&apos;s included
         </h4>
-        <ul className="space-y-4">
+        <ul className="space-y-3 sm:space-y-4">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start gap-3">
               <Check className="w-5 h-5 text-[#750037] shrink-0 mt-0.5" />
@@ -143,7 +145,7 @@ const SimplePricingCard = ({
       {/* Select Plan Button */}
       <Link
         href="/contact-us"
-        className="block w-full py-4 px-6 bg-[#F4E8F4] text-[#121116] rounded-full font-semibold text-center hover:bg-[#750037] hover:text-white transition-colors duration-300"
+        className="block w-full py-3.5 sm:py-4 px-6 bg-[#F4E8F4] text-[#121116] rounded-full font-semibold text-center text-sm sm:text-base hover:bg-[#750037] hover:text-white transition-colors duration-300"
       >
         Select Plan
       </Link>
@@ -169,31 +171,31 @@ const PricingPlans = () => {
 
       {/* Tabs */}
       <Tabs defaultValue="comprehensive" className="w-full">
-        <div className="flex justify-center mb-12">
-          <TabsList className="bg-transparent p-0 gap-3">
+        <div className="flex justify-center mb-8 sm:mb-12 px-3">
+          <TabsList className="bg-transparent p-0 gap-2 sm:gap-3 flex flex-wrap justify-center">
             <TabsTrigger
               value="comprehensive"
-              className="px-8 py-5 text-base rounded-full bg-[#4A1942] text-white data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-[#F5F0F7] data-[state=inactive]:text-[#121116] hover:bg-[#3d1436] transition-colors font-medium"
+              className="px-4 sm:px-8 py-3 sm:py-5 text-sm sm:text-base rounded-full bg-[#4A1942] text-white data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-[#F5F0F7] data-[state=inactive]:text-[#121116] hover:bg-[#3d1436] transition-colors font-medium w-full sm:w-auto text-center"
             >
               Comprehensive Package
             </TabsTrigger>
             <TabsTrigger
               value="monthly"
-              className="px-8 py-5 text-base rounded-full bg-[#F5F0F7] text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-[#F5F0F7] data-[state=inactive]:text-[#121116] hover:bg-[#e8dde8] transition-colors font-medium"
+              className="px-4 sm:px-8 py-3 sm:py-5 text-sm sm:text-base rounded-full bg-[#F5F0F7] text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-[#F5F0F7] data-[state=inactive]:text-[#121116] hover:bg-[#e8dde8] transition-colors font-medium w-full sm:w-auto text-center"
             >
               Monthly Video Editing
             </TabsTrigger>
             <TabsTrigger
               value="single"
-              className="px-8 py-5 text-base rounded-full bg-[#F5F0F7] text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-[#F5F0F7] data-[state=inactive]:text-[#121116] hover:bg-[#e8dde8] transition-colors font-medium"
+              className="px-4 sm:px-8 py-3 sm:py-5 text-sm sm:text-base rounded-full bg-[#F5F0F7] text-[#121116] data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-[#F5F0F7] data-[state=inactive]:text-[#121116] hover:bg-[#e8dde8] transition-colors font-medium w-full sm:w-auto text-center"
             >
               Single video edits
             </TabsTrigger>
           </TabsList>
         </div>
 
-        <TabsContent value="comprehensive" className="mt-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-6xl mx-auto">
+        <TabsContent value="comprehensive" className="mt-16 lg:mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
             <PricingCard
               title="36 Reels Package"
               price="£4099"
@@ -225,8 +227,8 @@ const PricingPlans = () => {
           </div>
         </TabsContent>
 
-        <TabsContent value="monthly" className="mt-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-6xl mx-auto">
+        <TabsContent value="monthly" className="mt-16 lg:mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
             <SimplePricingCard
               title="Short-Form Content"
               price="£799"
@@ -258,8 +260,8 @@ const PricingPlans = () => {
           </div>
         </TabsContent>
 
-        <TabsContent value="single" className="mt-0">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 max-w-6xl mx-auto">
+        <TabsContent value="single" className="mt-16 lg:mt-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
             <SimplePricingCard
               title="One Reels Package"
               price="£799"

@@ -50,9 +50,13 @@ const VideoCarousel = ({ videos }: VideoCarouselProps) => {
   return (
     <div className="relative w-full">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex" style={{ marginLeft: "-1rem" }}>
+        <div className="flex -ml-3 sm:-ml-4">
           {videos.map((video, index) => (
-            <div key={video.id} className="pl-4 flex-[0_0_auto]">
+            <div
+              key={video.id}
+              className="pl-3 sm:pl-4 flex-[0_0_100%] sm:flex-[0_0_auto]"
+              //         ^^^^^^^^ 100% width on mobile, desktop unchanged
+            >
               <VideoCard
                 videoUrl={video.videoUrl}
                 title={video.title}

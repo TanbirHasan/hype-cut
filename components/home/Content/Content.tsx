@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 import service from "@/assets/home/content/service.png";
 import industry from "@/assets/home/content/industry.png";
@@ -77,12 +78,16 @@ const Content = () => {
     <section className="relative py-16 lg:py-24 px-6 lg:px-8 bg-[#FAEBFF]">
       <div className="max-w-8xl mx-auto">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12 lg:mb-16">
+        <motion.div
+          className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12 lg:mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} // earlier trigger on mobile
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div>
-            <h2 className="text-4xl lg:text-6xl font-semibold text-[#121116] leading-tight">
-              Services That
-              <br />
-              Scale Your Content
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#121116] leading-tight">
+              Services That <span className="sm:block">Scale Your Content</span>
             </h2>
           </div>
           <div className="max-w-md">
@@ -91,15 +96,25 @@ const Content = () => {
               your brand consistent and your audience engaged.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {services.map((service) => {
+          {services.map((service, index) => {
+            const isWhiteText = service.textColor === "text-white";
+
             return (
-              <div
+              <motion.div
                 key={service.id}
                 className={`${service.bgColor} rounded-2xl p-8 lg:p-10 flex flex-col justify-between min-h-70 lg:min-h-80 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
+                initial={{ opacity: 0, y: 35, scale: 0.97 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{
+                  duration: 0.45,
+                  ease: "easeOut",
+                  delay: 0.05 + index * 0.07,
+                }}
               >
                 {/* Icon and Title */}
                 <div className="flex flex-col gap-4 mb-6">
@@ -128,15 +143,13 @@ const Content = () => {
                 <div>
                   <p
                     className={`text-sm lg:text-base ${service.textColor} ${
-                      service.textColor === "text-white"
-                        ? "opacity-90"
-                        : "opacity-80"
+                      isWhiteText ? "opacity-90" : "opacity-80"
                     } leading-relaxed`}
                   >
                     {service.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

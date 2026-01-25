@@ -1,8 +1,9 @@
+import WorksPortfolio from "@/components/works/WorksPortfolio";
+
 export default function Works() {
   return (
-    <div>
-      <h1>Our Works</h1>
-      <p>Explore our portfolio and case studies.</p>
-    </div>
+    <main className="min-h-screen bg-[#FAF4F8]">
+      <WorksPortfolio />
+    </main>
   );
 }
