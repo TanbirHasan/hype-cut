@@ -402,7 +402,7 @@ const WorksPortfolio = () => {
       <div className="max-w-8xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-6xl font-semibold text-[#121116] mb-4 tracking-tight">
+          <h1 className="text-[clamp(48px,8vw,92px)] font-semibold text-[#121116] mb-4 leading-[0.98] tracking-[-0.02em]">
             Our Creative
             <br />
             Portfolio

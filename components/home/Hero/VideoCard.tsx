@@ -6,10 +6,9 @@ interface VideoCardProps {
   videoUrl: string;
   title: string;
   color: string;
-  isActive: boolean;
 }
 
-const VideoCard = ({ videoUrl, title, isActive }: VideoCardProps) => {
+const VideoCard = ({ videoUrl, title }: VideoCardProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -17,17 +16,11 @@ const VideoCard = ({ videoUrl, title, isActive }: VideoCardProps) => {
     const video = videoRef.current;
     if (!video) return;
 
-    if (isActive) {
-      // Play video when card becomes active
-      video.play().catch((error) => {
-        console.log("Video playback failed:", error);
-      });
-    } else {
-      // Pause and reset when card is not active
-      video.pause();
-      video.currentTime = 0;
-    }
-  }, [isActive]);
+    // Auto-play all videos for continuous carousel
+    video.play().catch((error) => {
+      console.log("Video playback failed:", error);
+    });
+  }, []);
 
   return (
     <div className="relative h-[350px] sm:h-[400px] rounded-[16px] overflow-hidden shrink-0 w-full sm:w-[237px]">

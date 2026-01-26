@@ -8,7 +8,7 @@ const Mission = () => {
       <div className="max-w-8xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-7xl font-semibold text-[#1A1A1A] mb-4 leading-tight">
+          <h1 className="text-[clamp(48px,8vw,92px)] font-semibold text-[#1A1A1A] mb-4 leading-[0.98] tracking-[-0.02em]">
             About Our
             <br />
             Company & Mission

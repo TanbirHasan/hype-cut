@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 import VideoDialog from "@/components/ui/video-dialog";
 
 interface Testimonial {
@@ -30,18 +30,20 @@ const Testimonials = () => {
   } | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     {
       loop: true,
       align: "start",
-      skipSnaps: false,
-      dragFree: false,
+      dragFree: true,
+      containScroll: false,
     },
     [
-      Autoplay({
-        delay: 5000,
+      AutoScroll({
+        speed: 1,
+        startDelay: 0,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
+        stopOnFocusIn: false,
       }),
     ],
   );
@@ -97,6 +99,9 @@ const Testimonials = () => {
     },
   ];
 
+  // Duplicate testimonials for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials];
+
   const handlePlayVideo = (youtubeVideoId: string, videoTitle: string) => {
     setSelectedVideo({ youtubeVideoId, videoTitle });
     setIsDialogOpen(true);
@@ -114,18 +119,10 @@ const Testimonials = () => {
     }
   };
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
   return (
-    <section className="relative py-16 lg:py-24 px-6 lg:px-8 bg-[#F5F5F5]">
-      <div className="max-w-8xl mx-auto">
-        {/* Header */}
+    <section className="relative py-16 lg:py-24 bg-[#F5F5F5] overflow-hidden">
+      {/* Header - Constrained */}
+      <div className="max-w-8xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#121116] leading-tight">
@@ -141,37 +138,20 @@ const Testimonials = () => {
             </p>
           </div>
         </div>
+      </div>
 
-        {/* Testimonials Carousel */}
-        <div className="relative group">
-          {/* Navigation Buttons */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-gray-50 -ml-6"
-            aria-label="Previous testimonial"
-          >
-            <ChevronLeft className="w-6 h-6 text-gray-800" />
-          </button>
+      {/* Carousel - Full Width Edge to Edge */}
+      <div className="w-full">
+        <div className="overflow-hidden" ref={emblaRef}>
+          <div className="flex gap-4">
+            {duplicatedTestimonials.map((testimonial, index) => {
+              const thumbnailUrl = `https://img.youtube.com/vi/${testimonial.youtubeVideoId}/maxresdefault.jpg`;
 
-          <button
-            onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-gray-50 -mr-6"
-            aria-label="Next testimonial"
-          >
-            <ChevronRight className="w-6 h-6 text-gray-800" />
-          </button>
-
-          {/* Carousel Container */}
-          <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
-              {testimonials.map((testimonial) => {
-                const thumbnailUrl = `https://img.youtube.com/vi/${testimonial.youtubeVideoId}/maxresdefault.jpg`;
-
-                return (
-                  <div
-                    key={testimonial.id}
-                    className="flex-[0_0_100%] sm:flex-[0_0_85%] lg:flex-[0_0_65%] min-w-0 pr-4 sm:pr-6"
-                  >
+              return (
+                <div
+                  key={`${testimonial.id}-${index}`}
+                  className="shrink-0 w-[85vw] sm:w-[75vw] lg:w-[55vw] min-w-0"
+                >
                     <div
                       className={`${testimonial.bgColor} ${testimonial.textColor} rounded-[24px] sm:rounded-[32px] p-5 sm:p-6 lg:p-10 flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-16`}
                     >
@@ -281,7 +261,6 @@ const Testimonials = () => {
                   </div>
                 );
               })}
-            </div>
           </div>
         </div>
       </div>

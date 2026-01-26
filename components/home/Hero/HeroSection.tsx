@@ -10,14 +10,14 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <motion.section
-      className="relative min-h-screen bg-[#f5f3f0] pt-16 pb-16 px-6 lg:px-8"
+      className="relative min-h-screen bg-[#f5f3f0] pt-16 pb-16 overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="mx-auto max-w-8xl">
-        {/* Hero Text */}
+      {/* Hero Text - Constrained */}
+      <div className="mx-auto max-w-8xl px-6 lg:px-8">
         <motion.div
           className="text-center space-y-8 mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -63,21 +63,11 @@ const HeroSection = () => {
             </Button>
           </motion.div>
         </motion.div>
+      </div>
 
-        {/* Video Carousel */}
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0, scale: 0.9, y: 40 }}
-          whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{
-            duration: 0.7,
-            ease: "easeOut",
-            delay: 0.15,
-          }}
-        >
-          <VideoCarousel videos={heroVideos} />
-        </motion.div>
+      {/* Video Carousel - Full Width, Edge to Edge */}
+      <div className="w-full">
+        <VideoCarousel videos={heroVideos} />
       </div>
     </motion.section>
   );

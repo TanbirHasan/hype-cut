@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { Play, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import AutoScroll from "embla-carousel-auto-scroll";
 import { motion } from "framer-motion";
 import VideoDialog from "@/components/ui/video-dialog";
 
@@ -20,19 +20,21 @@ const ViralReel = () => {
   const [selectedVideo, setSelectedVideo] = useState<VideoItem | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  // Embla carousel for small videos with autoplay
-  const [emblaRef1, emblaApi1] = useEmblaCarousel(
+  // Embla carousel for small videos with auto-scroll
+  const [emblaRef1] = useEmblaCarousel(
     {
       loop: true,
       align: "start",
-      skipSnaps: false,
-      dragFree: false,
+      dragFree: true,
+      containScroll: false,
     },
     [
-      Autoplay({
-        delay: 3000,
+      AutoScroll({
+        speed: 1,
+        startDelay: 0,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
+        stopOnFocusIn: false,
       }),
     ],
   );
@@ -86,6 +88,9 @@ const ViralReel = () => {
     },
   ];
 
+  // Duplicate videos for seamless loop
+  const duplicatedVideos = [...smallVideos, ...smallVideos];
+
   const handlePlayVideo = (video: VideoItem) => {
     setSelectedVideo(video);
     setIsDialogOpen(true);
@@ -98,24 +103,16 @@ const ViralReel = () => {
     }
   };
 
-  const scrollPrev1 = useCallback(() => {
-    if (emblaApi1) emblaApi1.scrollPrev();
-  }, [emblaApi1]);
-
-  const scrollNext1 = useCallback(() => {
-    if (emblaApi1) emblaApi1.scrollNext();
-  }, [emblaApi1]);
-
   return (
     <motion.section
-      className="relative py-0 md:py-8 px-6 lg:px-8 bg-white"
+      className="relative py-0 md:py-8 bg-white overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-8xl mx-auto">
-        {/* Header */}
+      {/* Header - Constrained */}
+      <div className="max-w-8xl mx-auto px-6 lg:px-8">
         <motion.div
           className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16"
           initial={{ opacity: 0, y: 25 }}
@@ -137,87 +134,54 @@ const ViralReel = () => {
             </p>
           </div>
         </motion.div>
+      </div>
 
-        {/* First Carousel - Small Cards (309px) */}
-        <motion.div
-          className="mb-8 lg:mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-        >
-          <div className="relative group">
-            {/* Scroll buttons */}
-            <button
-              onClick={scrollPrev1}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white disabled:opacity-50 -ml-5"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft className="w-6 h-6 text-gray-800" />
-            </button>
+      {/* Carousel - Full Width Edge to Edge */}
+      <div className="w-full">
+        {/* Carousel container */}
+        <div className="overflow-hidden" ref={emblaRef1}>
+          <div className="flex gap-4">
+            {duplicatedVideos.map((video, index) => (
+              <div
+                key={`${video.id}-${index}`}
+                className="shrink-0 w-72 sm:w-77.25 group/card cursor-pointer"
+                onClick={() => handlePlayVideo(video)}
+              >
+                <div className="relative rounded-2xl overflow-hidden aspect-9/16 bg-gray-200">
+                  <Image
+                    src={video.thumbnail}
+                    alt={video.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover/card:scale-105"
+                    sizes="(max-width: 640px) 100vw, 309px"
+                  />
 
-            <button
-              onClick={scrollNext1}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-white disabled:opacity-50 -mr-5"
-              aria-label="Scroll right"
-            >
-              <ChevronRight className="w-6 h-6 text-gray-800" />
-            </button>
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
 
-            {/* Carousel container */}
-            <div className="overflow-hidden" ref={emblaRef1}>
-              <div className="flex gap-4 pb-4">
-                {smallVideos.map((video, index) => (
-                  <motion.div
-                    key={video.id}
-                    className="shrink-0 w-full sm:w-77.25 group/card cursor-pointer"
-                    onClick={() => handlePlayVideo(video)}
-                    initial={{ opacity: 0, y: 25, scale: 0.95 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{
-                      duration: 0.45,
-                      ease: "easeOut",
-                      delay: 0.1 + index * 0.08,
-                    }}
-                  >
-                    <div className="relative rounded-2xl overflow-hidden aspect-9/16 bg-gray-200">
-                      <Image
-                        src={video.thumbnail}
-                        alt={video.title}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover/card:scale-105"
-                        sizes="(max-width: 640px) 100vw, 309px"
-                      />
-
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
-
-                      {/* Play button overlay */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover/card:scale-110 shadow-xl">
-                          <Play className="w-7 h-7 text-[#121116] fill-[#121116] ml-0.5" />
-                        </div>
-                      </div>
-
-                      {/* Title overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4">
-                        {video.category && (
-                          <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium text-white mb-2">
-                            {video.category}
-                          </span>
-                        )}
-                        <h3 className="text-white font-bold text-lg leading-tight">
-                          {video.title}
-                        </h3>
-                      </div>
+                  {/* Play button overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover/card:scale-110 shadow-xl">
+                      <Play className="w-7 h-7 text-[#121116] fill-[#121116] ml-0.5" />
                     </div>
-                  </motion.div>
-                ))}
+                  </div>
+
+                  {/* Title overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    {video.category && (
+                      <span className="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs font-medium text-white mb-2">
+                        {video.category}
+                      </span>
+                    )}
+                    <h3 className="text-white font-bold text-lg leading-tight">
+                      {video.title}
+                    </h3>
+                  </div>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {selectedVideo && (
