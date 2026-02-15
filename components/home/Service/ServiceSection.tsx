@@ -4,7 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import VideoPlayer from "@/components/ui/video-player";
 import VideoDialog from "@/components/ui/video-dialog";
 import { Play } from "lucide-react";
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useTransform,
+  animate,
+  useScroll,
+} from "framer-motion";
 import Image from "next/image";
 
 const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
@@ -30,6 +37,7 @@ const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
 
 const ServicesSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
   const stats = [
     { value: 160, suffix: "+", label: "Projects" },
     { value: 100, suffix: "%", label: "Commitment" },
@@ -37,9 +45,29 @@ const ServicesSection = () => {
   ];
 
   const youtubeVideoId = "dQw4w9WgXcQ";
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 82%", "center 35%"],
+  });
+
+  // Stage 1: text appears. Stage 2: text vanishes while video emerges from icon area.
+  const textOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.36, 0.5],
+    [0, 1, 1, 0]
+  );
+  const textY = useTransform(scrollYProgress, [0, 0.18, 0.5], [28, 0, -20]);
+  const iconScale = useTransform(scrollYProgress, [0, 0.2, 0.45], [0.75, 1, 0.85]);
+  const iconRotate = useTransform(scrollYProgress, [0, 0.22], [-8, 0]);
+  const iconOpacity = useTransform(scrollYProgress, [0, 0.18, 0.45], [0, 1, 0.7]);
+
+  const videoOpacity = useTransform(scrollYProgress, [0.34, 0.55], [0, 1]);
+  const videoScale = useTransform(scrollYProgress, [0.34, 0.72], [0.22, 1]);
+  const videoY = useTransform(scrollYProgress, [0.34, 0.72], [-120, 0]);
 
   return (
     <motion.section
+      ref={sectionRef}
       className="relative py-16 lg:py-24 px-6 lg:px-8 bg-white"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -48,18 +76,15 @@ const ServicesSection = () => {
     >
       <div className="container mx-auto max-w-6xl">
         {/* Heading */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        >
+        <motion.div className="text-center mb-12" style={{ opacity: textOpacity, y: textY }}>
           <h2 className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-semibold text-[#000000] leading-[1.35] max-w-[780px] mx-auto">
             We create, edit, and market videos whether{" "}
-            <span className="inline-flex items-center justify-center w-[28px] h-[28px] sm:w-[34px] sm:h-[34px] md:w-[40px] md:h-[40px] lg:w-[46px] lg:h-[46px] bg-[#1a1a2e] rounded-lg mx-1 sm:mx-1.5 align-middle overflow-hidden">
+            <motion.span
+              className="inline-flex items-center justify-center w-[28px] h-[28px] sm:w-[34px] sm:h-[34px] md:w-[40px] md:h-[40px] lg:w-[46px] lg:h-[46px] bg-[#1a1a2e] rounded-lg mx-1 sm:mx-1.5 align-middle overflow-hidden"
+              style={{ scale: iconScale, rotate: iconRotate, opacity: iconOpacity }}
+            >
               <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-5.5 lg:h-5.5 text-white fill-white" />
-            </span>{" "}
+            </motion.span>{" "}
             filmed at your{" "}
             <br className="hidden lg:inline" />
             place or sent by you.
@@ -68,12 +93,11 @@ const ServicesSection = () => {
 
         <div className="space-y-12 sm:space-y-16 lg:space-y-25">
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, y: 40 }}
-            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{
-              duration: 0.7,
-              ease: "easeOut",
+            style={{
+              opacity: videoOpacity,
+              scale: videoScale,
+              y: videoY,
+              transformOrigin: "50% 0%",
             }}
           >
             <div className="relative">
