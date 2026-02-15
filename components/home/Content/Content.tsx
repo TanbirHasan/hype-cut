@@ -91,7 +91,7 @@ const Content = () => {
             </h2>
           </div>
           <div className="max-w-md">
-            <p className="text-lg text-[#404040] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#404040] leading-relaxed">
               Editing, scripting, publishing, and more — all crafted to keep
               your brand consistent and your audience engaged.
             </p>
@@ -100,7 +100,7 @@ const Content = () => {
 
         {/* Services Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3"
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
@@ -112,7 +112,7 @@ const Content = () => {
             return (
               <div
                 key={service.id}
-                className={`${service.bgColor} rounded-2xl p-6 lg:p-7 flex flex-col justify-between min-h-56 lg:min-h-60 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
+                className={`${service.bgColor} rounded-2xl p-4 sm:p-6 lg:p-7 flex flex-col justify-between min-h-40 sm:min-h-56 lg:min-h-60 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
               >
                 {/* Icon and Title */}
                 <div className="flex flex-col gap-3 mb-4">
@@ -131,7 +131,7 @@ const Content = () => {
 
                   {/* Title */}
                   <h3
-                    className={`text-xl lg:text-2xl font-bold ${service.textColor} leading-tight`}
+                    className={`text-base sm:text-xl lg:text-2xl font-bold ${service.textColor} leading-tight`}
                   >
                     {service.title}
                   </h3>

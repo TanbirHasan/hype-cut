@@ -27,7 +27,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="px-6 lg:px-12">
+      <div className="container-max">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center px-4 py-1.5 rounded-full">
             <Image

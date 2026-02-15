@@ -13,8 +13,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-white pt-12 lg:pt-16 px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-white pt-12 lg:pt-16">
+      <div className="container-max">
         {/* Top Section - 4 Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 pb-12 lg:pb-16">
           {/* Company Column */}
@@ -293,13 +293,13 @@ const Footer = () => {
           </p>
           <div className="flex items-center gap-6">
             <Link
-              href="#"
+              href="/terms-and-conditions"
               className="text-[#121116] text-sm hover:text-[#750037] transition-colors"
             >
               Terms & Conditions
             </Link>
             <Link
-              href="#"
+              href="/privacy-policy"
               className="text-[#121116] text-sm hover:text-[#750037] transition-colors"
             >
               Privacy Policy

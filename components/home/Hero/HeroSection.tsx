@@ -17,7 +17,7 @@ const HeroSection = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Hero Text - Constrained */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-10 lg:pt-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-6 sm:pt-10 lg:pt-16">
         <motion.div
           className="text-center space-y-3"
           initial={{ opacity: 0, y: 30 }}
@@ -25,13 +25,13 @@ const HeroSection = () => {
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h1 className="text-5xl font-semibold leading-13.75 tracking-[-0.02em] text-center text-[#1a1a2e] mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight lg:leading-13.75 tracking-[-0.02em] text-center text-[#1a1a2e] mb-4 sm:mb-6">
             Your Premier Video
             <br />
             Editing Agency
           </h1>
 
-          <p className="text-base font-medium text-center text-[#6B6B6B] max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base font-medium text-center text-[#6B6B6B] max-w-3xl mx-auto">
             From bespoke scriptwriting to editing and recording - we ensure your
             brand stands out all in one effortless Done For You Service
           </p>

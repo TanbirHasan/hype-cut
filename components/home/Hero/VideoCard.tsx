@@ -23,7 +23,7 @@ const VideoCard = ({ videoUrl, title }: VideoCardProps) => {
   }, []);
 
   return (
-    <div className="relative h-75 rounded-3xl overflow-hidden shrink-0 w-full sm:w-[237px]">
+    <div className="relative h-52 sm:h-64 lg:h-75 rounded-3xl overflow-hidden shrink-0 w-[160px] sm:w-[200px] lg:w-[237px]">
       <video
         ref={videoRef}
         src={videoUrl}
