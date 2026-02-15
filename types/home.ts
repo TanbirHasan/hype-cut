@@ -10,7 +10,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 1,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+      "https://videos.pexels.com/video-files/2706514/2706514-hd_1920_1080_30fps.mp4",
     thumbnail: "/images/home/video-1.jpg",
     title: "Don't Stop, Keep Moving Forward",
     color: "#000000",
@@ -18,7 +18,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 2,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "https://videos.pexels.com/video-files/4173415/4173415-hd_1920_1080_30fps.mp4",
     thumbnail: "/images/home/video-2.jpg",
     title: "Creative Content",
     color: "#0ea5a5",
@@ -26,7 +26,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 3,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "https://videos.pexels.com/video-files/905250/905250-hd_1280_720_30fps.mp4",
     thumbnail: "/images/home/video-3.jpg",
     title: "Stop Your Child Juice Drinking",
     color: "#ff6347",
@@ -34,7 +34,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 4,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      "https://videos.pexels.com/video-files/3542013/3542013-hd_1920_1080_24fps.mp4",
     thumbnail: "/images/home/video-4.jpg",
     title: "Start Today",
     color: "#e0e0e0",
@@ -42,7 +42,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 5,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+      "https://videos.pexels.com/video-files/2735069/2735069-hd_1620_1080_15fps.mp4",
     thumbnail: "/images/home/video-5.jpg",
     title: "Fashion is Confidence",
     color: "#9fa8da",
@@ -50,7 +50,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 6,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+      "https://videos.pexels.com/video-files/3209828/3209828-uhd_3840_2160_25fps.mp4",
     thumbnail: "/images/home/video-6.jpg",
     title: "Love & Joy",
     color: "#ffb6c1",
@@ -58,7 +58,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 7,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "https://videos.pexels.com/video-files/1481903/1481903-hd_1920_1080_25fps.mp4",
     thumbnail: "/images/home/video-3.jpg",
     title: "Stop Your Child Juice Drinking",
     color: "#ff6347",
@@ -66,7 +66,7 @@ export const heroVideos: HeroVideo[] = [
   {
     id: 8,
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "https://videos.pexels.com/video-files/7257789/7257789-hd_1920_1080_25fps.mp4",
     thumbnail: "/images/home/video-2.jpg",
     title: "Creative Content",
     color: "#0ea5a5",

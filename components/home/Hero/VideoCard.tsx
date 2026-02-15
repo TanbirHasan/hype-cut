@@ -16,10 +16,31 @@ const VideoCard = ({ videoUrl, title }: VideoCardProps) => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Auto-play all videos for continuous carousel
-    video.play().catch((error) => {
-      console.log("Video playback failed:", error);
-    });
+    const tryPlay = () => {
+      video.muted = true;
+      video.playsInline = true;
+      video.play().catch(() => {
+        // Ignore transient autoplay failures and retry below.
+      });
+    };
+
+    // Try immediately, then again when media is ready.
+    tryPlay();
+    video.addEventListener("loadeddata", tryPlay);
+    video.addEventListener("canplay", tryPlay);
+
+    // Some browsers pause background videos aggressively; keep retrying lightly.
+    const retryTimer = window.setInterval(() => {
+      if (video.paused && video.readyState >= 2) {
+        tryPlay();
+      }
+    }, 1500);
+
+    return () => {
+      video.removeEventListener("loadeddata", tryPlay);
+      video.removeEventListener("canplay", tryPlay);
+      window.clearInterval(retryTimer);
+    };
   }, []);
 
   return (
@@ -28,6 +49,7 @@ const VideoCard = ({ videoUrl, title }: VideoCardProps) => {
         ref={videoRef}
         src={videoUrl}
         className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
         loop
         muted
         playsInline

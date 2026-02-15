@@ -65,8 +65,8 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Spacer to push carousel to bottom */}
-      <div className="flex-1 min-h-6" />
+      {/* Spacer: keep compact on mobile, push carousel down on desktop */}
+      <div className="min-h-4 lg:flex-1 lg:min-h-6" />
 
       {/* Video Carousel - Full Width, anchored to bottom */}
       <div className="w-full pb-6">
