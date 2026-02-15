@@ -34,9 +34,9 @@ const VideoCarousel = ({ videos }: VideoCarouselProps) => {
   return (
     <div className="relative w-full">
       <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex gap-3 sm:gap-4">
+        <div className="flex">
           {duplicatedVideos.map((video, index) => (
-            <div key={`${video.id}-${index}`} className="flex-[0_0_auto]">
+            <div key={`${video.id}-${index}`} className="flex-[0_0_auto] pl-3 sm:pl-4">
               <VideoCard
                 videoUrl={video.videoUrl}
                 title={video.title}

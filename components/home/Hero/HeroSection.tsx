@@ -10,28 +10,28 @@ import { motion } from "framer-motion";
 const HeroSection = () => {
   return (
     <motion.section
-      className="relative min-h-screen bg-[#f5f3f0] pt-16 pb-16 overflow-hidden"
+      className="relative h-[calc(100vh-64px)] bg-[#f5f3f0] flex flex-col overflow-hidden"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Hero Text - Constrained */}
-      <div className="mx-auto max-w-8xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 pt-10 lg:pt-16">
         <motion.div
-          className="text-center space-y-8 mb-12 lg:mb-16"
+          className="text-center space-y-3"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <h1 className="text-[clamp(48px,8vw,92px)] font-semibold leading-[0.98] tracking-[-0.02em] text-center text-[#1a1a2e] mb-6">
+          <h1 className="text-5xl font-semibold leading-13.75 tracking-[-0.02em] text-center text-[#1a1a2e] mb-6">
             Your Premier Video
             <br />
             Editing Agency
           </h1>
 
-          <p className=" text-lg font-medium text-center text-[#6B6B6B] mb-8 max-w-3xl mx-auto">
+          <p className="text-base font-medium text-center text-[#6B6B6B] max-w-3xl mx-auto">
             From bespoke scriptwriting to editing and recording - we ensure your
             brand stands out all in one effortless Done For You Service
           </p>
@@ -65,8 +65,11 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      {/* Video Carousel - Full Width, Edge to Edge */}
-      <div className="w-full">
+      {/* Spacer to push carousel to bottom */}
+      <div className="flex-1 min-h-6" />
+
+      {/* Video Carousel - Full Width, anchored to bottom */}
+      <div className="w-full pb-6">
         <VideoCarousel videos={heroVideos} />
       </div>
     </motion.section>

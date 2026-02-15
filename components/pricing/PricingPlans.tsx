@@ -158,7 +158,7 @@ const PricingPlans = () => {
     <div className="w-full">
       {/* Section Header */}
       <div className="text-center mb-8">
-        <h2 className="text-3xl lg:text-6xl font-semibold text-[#121116] mb-4">
+        <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#121116] mb-4">
           Pick your Suitable plan
         </h2>
         <p className="text-base lg:text-2xl text-[#404040] max-w-3xl mx-auto font-normal">
@@ -298,3 +298,5 @@ const PricingPlans = () => {
 };
 
 export default PricingPlans;
+
+

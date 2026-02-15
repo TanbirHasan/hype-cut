@@ -6,10 +6,10 @@ import { InlineWidget } from "react-calendly";
 const ConsultationBooking = () => {
   return (
     <div className="min-h-screen bg-[#F7F7F7] py-12">
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold text-[#1A1A1A] mb-3">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#1A1A1A] mb-3">
             Let&apos;s Work Together
           </h1>
           <p className="text-base text-[#666666]">
@@ -109,3 +109,4 @@ export default ConsultationBooking;
 // 3. Replace 'your-calendly-username/30min' with your actual Calendly event URL
 //    Example: "https://calendly.com/john-doe/30min"
 // 4. Make sure you have a Calendly account and have created an even
+

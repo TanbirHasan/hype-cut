@@ -112,23 +112,23 @@ const ViralReel = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Header - Constrained */}
-      <div className="max-w-8xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
-          className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16"
+          className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-6 sm:mb-8 lg:mb-10"
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight">
               Turn Moments
               <br />
               Into Viral Reels
             </h2>
           </div>
           <div className="max-w-md">
-            <p className="text-sm sm:text-base lg:text-xl text-[#404040] leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base text-[#404040] leading-relaxed">
               We craft engaging, social-ready reels designed to boost visibility
               and engagement on every platform.
             </p>
@@ -140,14 +140,14 @@ const ViralReel = () => {
       <div className="w-full">
         {/* Carousel container */}
         <div className="overflow-hidden" ref={emblaRef1}>
-          <div className="flex gap-4">
+          <div className="flex">
             {duplicatedVideos.map((video, index) => (
               <div
                 key={`${video.id}-${index}`}
-                className="shrink-0 w-72 sm:w-77.25 group/card cursor-pointer"
+                className="shrink-0 w-56 sm:w-64 pl-4 group/card cursor-pointer"
                 onClick={() => handlePlayVideo(video)}
               >
-                <div className="relative rounded-2xl overflow-hidden aspect-9/16 bg-gray-200">
+                <div className="relative rounded-2xl overflow-hidden h-75 bg-gray-200">
                   <Image
                     src={video.thumbnail}
                     alt={video.title}
@@ -162,7 +162,7 @@ const ViralReel = () => {
                   {/* Play button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover/card:scale-110 shadow-xl">
-                      <Play className="w-7 h-7 text-[#121116] fill-[#121116] ml-0.5" />
+                      <Play className="w-7 h-7 text-[#3B4C9A] fill-[#3B4C9A] ml-0.5" />
                     </div>
                   </div>
 

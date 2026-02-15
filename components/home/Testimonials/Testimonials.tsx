@@ -120,19 +120,19 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="relative py-16 lg:py-24 bg-[#F5F5F5] overflow-hidden">
+    <section className="relative py-10 lg:py-14 bg-[#F5F5F5] overflow-hidden">
       {/* Header - Constrained */}
-      <div className="max-w-8xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-8 sm:mb-12 lg:mb-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-6 lg:mb-8">
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight">
               What Our
               <br />
               Clients Say
             </h2>
           </div>
           <div className="max-w-lg">
-            <p className="text-sm sm:text-base lg:text-2xl text-[#404040] leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base text-[#404040] leading-relaxed">
               From YouTubers to startups, our clients share how our editing and
               strategy helped them scale their content and audience.
             </p>
@@ -143,44 +143,44 @@ const Testimonials = () => {
       {/* Carousel - Full Width Edge to Edge */}
       <div className="w-full">
         <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-4">
+          <div className="flex">
             {duplicatedTestimonials.map((testimonial, index) => {
               const thumbnailUrl = `https://img.youtube.com/vi/${testimonial.youtubeVideoId}/maxresdefault.jpg`;
 
               return (
                 <div
                   key={`${testimonial.id}-${index}`}
-                  className="shrink-0 w-[85vw] sm:w-[75vw] lg:w-[55vw] min-w-0"
+                  className="shrink-0 w-[85vw] sm:w-[75vw] lg:w-[50vw] min-w-0 pl-4"
                 >
                     <div
-                      className={`${testimonial.bgColor} ${testimonial.textColor} rounded-[24px] sm:rounded-[32px] p-5 sm:p-6 lg:p-10 flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-16`}
+                      className={`${testimonial.bgColor} ${testimonial.textColor} rounded-2xl p-5 sm:p-6 lg:p-7 flex flex-col lg:flex-row gap-4 sm:gap-5 lg:gap-8`}
                     >
                       {/* Left Side - Text Content */}
-                      <div className="flex-1 space-y-6 sm:space-y-8 lg:space-y-12">
+                      <div className="flex-1 space-y-4 sm:space-y-5 lg:space-y-6">
                         {/* Client Info + Quote */}
-                        <div className="space-y-6 sm:space-y-8 lg:space-y-12">
+                        <div className="space-y-4 sm:space-y-5 lg:space-y-6">
                           <div className="flex items-start gap-3">
-                            <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full overflow-hidden bg-white shrink-0">
+                            <div className="relative w-10 h-10 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-full overflow-hidden bg-white shrink-0">
                               <Image
                                 src={testimonial.avatar}
                                 alt={testimonial.name}
-                                width={60}
-                                height={60}
+                                width={48}
+                                height={48}
                                 className="object-cover"
                               />
                             </div>
-                            <div className="flex flex-col gap-1 sm:gap-2">
+                            <div className="flex flex-col gap-1">
                               <div>
-                                <h3 className="font-bold text-base sm:text-lg lg:text-xl">
+                                <h3 className="font-bold text-sm sm:text-base lg:text-base">
                                   {testimonial.name}
                                 </h3>
-                                <p className="text-sm sm:text-base lg:text-lg">
+                                <p className="text-xs sm:text-sm lg:text-sm">
                                   {testimonial.role}
                                 </p>
                               </div>
                               {/* Rating Badge */}
-                              <div className="inline-block w-fit px-3 sm:px-4 py-1 sm:py-1.5 bg-white rounded-full">
-                                <span className="font-bold text-xs sm:text-sm lg:text-base text-[#121116]">
+                              <div className="inline-block w-fit px-2.5 sm:px-3 py-0.5 sm:py-1 bg-white rounded-full">
+                                <span className="font-bold text-xs sm:text-xs lg:text-sm text-[#121116]">
                                   {testimonial.rating}
                                 </span>
                               </div>
@@ -188,30 +188,30 @@ const Testimonials = () => {
                           </div>
 
                           {/* Quote */}
-                          <blockquote className="text-base sm:text-xl lg:text-3xl font-semibold mb-4 sm:mb-6 lg:mb-8 leading-tight">
+                          <blockquote className="text-sm sm:text-base lg:text-xl font-semibold mb-3 sm:mb-4 leading-tight">
                             &quot;{testimonial.quote}&quot;
                           </blockquote>
                         </div>
 
                         {/* Stats */}
                         <div>
-                          <p className="text-xs sm:text-sm lg:text-lg mb-2 sm:mb-3">
+                          <p className="text-xs sm:text-xs lg:text-sm mb-1.5 sm:mb-2">
                             {testimonial.startedWith}
                           </p>
-                          <div className="flex gap-6 sm:gap-8 lg:gap-12">
+                          <div className="flex gap-4 sm:gap-6 lg:gap-8">
                             <div>
-                              <div className="text-xl sm:text-2xl font-semibold mb-1">
+                              <div className="text-lg sm:text-xl font-semibold mb-0.5">
                                 {testimonial.followersGained}
                               </div>
-                              <div className="text-xs sm:text-sm lg:text-lg">
+                              <div className="text-xs sm:text-xs lg:text-sm">
                                 Followers Gained
                               </div>
                             </div>
                             <div>
-                              <div className="text-xl sm:text-2xl font-semibold mb-1">
+                              <div className="text-lg sm:text-xl font-semibold mb-0.5">
                                 {testimonial.viewCount}
                               </div>
-                              <div className="text-xs sm:text-sm lg:text-lg">
+                              <div className="text-xs sm:text-xs lg:text-sm">
                                 View Count
                               </div>
                             </div>
@@ -220,9 +220,9 @@ const Testimonials = () => {
                       </div>
 
                       {/* Right Side - Video Thumbnail */}
-                      <div className="shrink-0 w-full lg:w-72">
+                      <div className="shrink-0 w-full lg:w-56">
                         <div
-                          className="relative rounded-3xl sm:rounded-[24px] overflow-hidden h-48 sm:h-64 lg:h-105.25 bg-[#1a1a2e] cursor-pointer group/video"
+                          className="relative rounded-2xl overflow-hidden h-40 sm:h-48 lg:h-72 bg-[#1a1a2e] cursor-pointer group/video"
                           onClick={() =>
                             handlePlayVideo(
                               testimonial.youtubeVideoId,
@@ -243,16 +243,16 @@ const Testimonials = () => {
                           <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-black/50" />
 
                           {/* Video Title */}
-                          <div className="absolute top-4 sm:top-6 left-0 right-0 text-center px-4 sm:px-6">
-                            <h4 className="text-white font-bold text-sm sm:text-lg lg:text-xl">
+                          <div className="absolute top-3 sm:top-4 left-0 right-0 text-center px-3 sm:px-4">
+                            <h4 className="text-white font-bold text-xs sm:text-sm lg:text-base">
                               {testimonial.videoTitle}
                             </h4>
                           </div>
 
                           {/* Play Button */}
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-white rounded-full flex items-center justify-center transition-all duration-300 group-hover/video:scale-110 shadow-2xl">
-                              <Play className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-[#EA1C31] fill-[#EA1C31] ml-0.5 sm:ml-1" />
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 bg-white rounded-full flex items-center justify-center transition-all duration-300 group-hover/video:scale-110 shadow-2xl">
+                              <Play className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-[#EA1C31] fill-[#EA1C31] ml-0.5" />
                             </div>
                           </div>
                         </div>
@@ -280,3 +280,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+

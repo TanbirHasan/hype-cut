@@ -85,15 +85,15 @@ const ViralReelTwo = () => {
   };
 
   return (
-    <section className="relative py-8 bg-white overflow-hidden">
+    <section className="relative py-4 bg-white overflow-hidden">
       {/* Carousel - Full Width Edge to Edge */}
       <div className="w-full">
         <div className="overflow-hidden" ref={emblaRef2}>
-          <div className="flex gap-4">
+          <div className="flex">
             {duplicatedVideos.map((video, index) => (
               <div
                 key={`${video.id}-${index}`}
-                className="shrink-0 w-80 sm:w-150 group/card cursor-pointer"
+                className="shrink-0 w-72 sm:w-120 pl-4 group/card cursor-pointer"
                 onClick={() => handlePlayVideo(video)}
               >
                 <div className="relative rounded-2xl overflow-hidden aspect-video bg-gray-200">
@@ -111,7 +111,7 @@ const ViralReelTwo = () => {
                   {/* Play button overlay */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center transition-all duration-300 group-hover/card:scale-110 shadow-xl">
-                      <Play className="w-9 h-9 text-[#121116] fill-[#121116] ml-0.5" />
+                      <Play className="w-9 h-9 text-[#3B4C9A] fill-[#3B4C9A] ml-0.5" />
                     </div>
                   </div>
 

@@ -1,18 +1,39 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import VideoPlayer from "@/components/ui/video-player";
 import VideoDialog from "@/components/ui/video-dialog";
 import { Play } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import Image from "next/image";
+
+const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const motionValue = useMotionValue(0);
+  const rounded = useTransform(motionValue, (v) => Math.round(v));
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    const unsubscribe = rounded.on("change", (v) => setDisplay(v));
+    return unsubscribe;
+  }, [rounded]);
+
+  useEffect(() => {
+    if (isInView) {
+      animate(motionValue, target, { duration: 2, ease: "easeOut" });
+    }
+  }, [isInView, motionValue, target]);
+
+  return <span ref={ref}>{display}{suffix}</span>;
+};
 
 const ServicesSection = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const stats = [
-    { value: "160+", label: "Projects" },
-    { value: "100%", label: "Commitment" },
-    { value: "45+", label: "Clients" },
+    { value: 160, suffix: "+", label: "Projects" },
+    { value: 100, suffix: "%", label: "Commitment" },
+    { value: 45, suffix: "+", label: "Clients" },
   ];
 
   const youtubeVideoId = "dQw4w9WgXcQ";
@@ -34,12 +55,14 @@ const ServicesSection = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-semibold text-[#000000] leading-tight">
+          <h2 className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-semibold text-[#000000] leading-[1.35] max-w-[780px] mx-auto">
             We create, edit, and market videos whether{" "}
-            <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-[#1a1a2e] rounded-lg mx-1 sm:mx-2 align-middle">
-              <Play className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-white fill-white" />
+            <span className="inline-flex items-center justify-center w-[28px] h-[28px] sm:w-[34px] sm:h-[34px] md:w-[40px] md:h-[40px] lg:w-[46px] lg:h-[46px] bg-[#1a1a2e] rounded-lg mx-1 sm:mx-1.5 align-middle overflow-hidden">
+              <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-5.5 lg:h-5.5 text-white fill-white" />
             </span>{" "}
-            filmed at your place or sent by you.
+            filmed at your{" "}
+            <br className="hidden lg:inline" />
+            place or sent by you.
           </h2>
         </motion.div>
 
@@ -92,8 +115,8 @@ const ServicesSection = () => {
                     delay: 0.2 + index * 0.1,
                   }}
                 >
-                  <div className="text-2xl sm:text-4xl lg:text-7xl font-bold text-white mb-1 sm:mb-2">
-                    {stat.value}
+                  <div className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white mb-1 sm:mb-2">
+                    <CountUp target={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-xs sm:text-sm lg:text-base text-white/80 font-medium">
                     {stat.label}
@@ -121,3 +144,4 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
+

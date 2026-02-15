@@ -221,11 +221,11 @@ const ContactForm = () => {
 
   return (
     <section className="py-16 lg:py-24 px-6 lg:px-8 bg-[#FAF4F8]">
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Side - Info */}
           <div className="lg:pr-8">
-            <h1 className="text-4xl lg:text-5xl font-bold text-[#121116] leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#121116] leading-tight mb-6">
               Get in Touch
               <br />
               with Hypecut
@@ -245,12 +245,12 @@ const ContactForm = () => {
 
               <div className="space-y-3 text-[#404040] text-base">
                 <p>
-                  <span className="text-[#121116] font-medium">A:</span> 123
-                  Innovation Street, Dhaka, Bangladesh
+                  <span className="text-[#121116] font-medium">A:</span> 124
+                  City Road, London, United Kingdom
                 </p>
                 <p>
                   <span className="text-[#121116] font-medium">E:</span>{" "}
-                  info@hypecut.io
+                  info@hypecut.com
                 </p>
                 <p>
                   <span className="text-[#121116] font-medium">N:</span> +880
@@ -486,3 +486,4 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+

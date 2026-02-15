@@ -30,11 +30,11 @@ const SimpleSteps = () => {
 
   return (
     <section className="w-full bg-[#F5F0F7] py-16 lg:py-24 px-4">
-      <div className="max-w-8xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
           <div>
-            <h2 className="text-4xl lg:text-6xl font-semibold text-[#1A1A1A] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#1A1A1A] leading-tight">
               Simple Steps to
               <br />
               Stunning Results
@@ -80,3 +80,4 @@ const SimpleSteps = () => {
 };
 
 export default SimpleSteps;
+

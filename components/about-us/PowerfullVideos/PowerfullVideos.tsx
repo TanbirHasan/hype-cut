@@ -85,10 +85,10 @@ const PowerfullVideos = () => {
   return (
     <section className="relative py-16 lg:py-24 bg-white overflow-hidden">
       {/* Header - Constrained */}
-      <div className="max-w-8xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12 lg:mb-16">
           <div>
-            <h2 className="text-4xl lg:text-6xl font-semibold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#121116] leading-tight">
               Powerful Videos <br />
               That Drive Impact
             </h2>
@@ -105,11 +105,11 @@ const PowerfullVideos = () => {
       {/* Carousel - Full Width Edge to Edge */}
       <div className="w-full">
         <div className="overflow-hidden" ref={emblaRef2}>
-          <div className="flex gap-4">
+          <div className="flex">
             {duplicatedVideos.map((video, index) => (
               <div
                 key={`${video.id}-${index}`}
-                className="shrink-0 w-80 sm:w-150 group/card cursor-pointer"
+                className="shrink-0 w-80 sm:w-150 pl-4 group/card cursor-pointer"
                 onClick={() => handlePlayVideo(video)}
               >
                 <div className="relative rounded-2xl overflow-hidden aspect-video bg-gray-200">
@@ -178,3 +178,4 @@ const PowerfullVideos = () => {
 };
 
 export default PowerfullVideos;
+

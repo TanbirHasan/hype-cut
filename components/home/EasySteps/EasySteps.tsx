@@ -66,21 +66,21 @@ const EasySteps = () => {
   ];
 
   return (
-    <section className="relative py-16 lg:py-24 px-6 lg:px-8 bg-[#EBF3FF]">
-      <div className="max-w-8xl mx-auto">
+    <section className="relative py-10 lg:py-14 px-6 lg:px-8 bg-[#EBF3FF]">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-12 lg:mb-16"
+          className="text-center mb-6 lg:mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }} // more forgiving for mobile
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#121116] leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight mb-4">
             Get Your Video{" "}
             <span className="sm:block">Done in 6 Easy Steps</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-xl text-[#404040] mb-8 max-w-3xl mx-auto">
+          <p className="text-sm sm:text-base lg:text-base text-[#404040] mb-5 max-w-3xl mx-auto">
             A clear and proven process that makes video creation effortless.
           </p>
 
@@ -114,7 +114,7 @@ const EasySteps = () => {
           {steps.map((step, index) => (
             <motion.div
               key={step.id}
-              className="bg-white rounded-3xl p-8 lg:p-10 flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
+              className="bg-white rounded-2xl p-5 lg:p-6 flex flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl"
               initial={{ opacity: 0, y: 35, scale: 0.97 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -125,30 +125,30 @@ const EasySteps = () => {
               }}
             >
               {/* Step Number */}
-              <div className="mb-4">
-                <span className="text-[#EA1C31] text-lg font-semibold">
+              <div className="mb-2">
+                <span className="text-[#EA1C31] text-base font-semibold">
                   {step.stepNumber}
                 </span>
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl lg:text-3xl font-bold text-[#121116] mb-8">
+              <h3 className="text-xl lg:text-2xl font-bold text-[#121116] mb-4">
                 {step.title}
               </h3>
 
               {/* Illustration */}
-              <div className="relative w-full h-48 mb-8 flex items-center justify-center">
+              <div className="relative w-full h-32 mb-4 flex items-center justify-center">
                 <Image
                   src={step.image}
                   alt={step.title}
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   className="object-contain"
                 />
               </div>
 
               {/* Description */}
-              <p className="text-sm lg:text-base text-[#404040] leading-relaxed mt-auto">
+              <p className="text-xs lg:text-sm text-[#404040] leading-relaxed mt-auto">
                 {step.description}
               </p>
             </motion.div>
@@ -160,3 +160,4 @@ const EasySteps = () => {
 };
 
 export default EasySteps;
+

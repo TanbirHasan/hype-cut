@@ -4,11 +4,11 @@ import Image from "next/image";
 
 const Mission = () => {
   return (
-    <section className="w-full bg-[#F8F8F8] py-16 lg:py-24 px-4">
-      <div className="max-w-8xl mx-auto">
+    <section className="w-full bg-[#F8F8F8] py-16 px-4">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-[clamp(48px,8vw,92px)] font-semibold text-[#1A1A1A] mb-4 leading-[0.98] tracking-[-0.02em]">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#1A1A1A] mb-4 leading-tight tracking-[-0.02em]">
             About Our
             <br />
             Company & Mission
@@ -35,7 +35,7 @@ const Mission = () => {
 
           {/* Right Side - Content */}
           <div className="space-y-6 flex flex-col">
-            <h2 className="text-3xl lg:text-6xl font-semibold text-[#1A1A1A] leading-tight lg:leading-[64px]">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#1A1A1A] leading-tight">
               Together
               <br />
               we are strong
@@ -43,19 +43,19 @@ const Mission = () => {
 
             <div className="space-y-4 text-[#404040] text-base leading-6.5 flex-1">
               <p>
-                Born from The Founders Guild's commitment to fostering
+                Born from The Founders Guild&apos;s commitment to fostering
                 entrepreneurial success, Hypecut specialises in short-form video
                 content that captures attention, drives engagement, and
                 positions businesses as leaders in their industries. We know
-                that in today's fast-paced digital landscape, seconds matter,
-                and that's why we focus on creating impactful, viral-ready
+                that in today&apos;s fast-paced digital landscape, seconds matter,
+                and that&apos;s why we focus on creating impactful, viral-ready
                 content tailored to your unique vision. Our Done For You Service
                 is designed with busy founders and business leaders in mind.
                 From custom script writing and professional studio recording in
                 Central London to cutting-edge editing and platform publishing,
                 we handle every detail. The result? High-performing content that
                 resonates with audiences and builds lasting connections. Join
-                us, and let's craft your story. Together, we'll take your brand
+                us, and let&apos;s craft your story. Together, we&apos;ll take your brand
                 to the next level.
               </p>
 
@@ -68,8 +68,8 @@ const Mission = () => {
 
               <p>
                 The result? High-performing content that resonates with
-                audiences and builds lasting connections. Join us, and let's
-                craft your story. Together, we'll take your brand to the next
+                audiences and builds lasting connections. Join us, and let&apos;s
+                craft your story. Together, we&apos;ll take your brand to the next
                 level.
               </p>
             </div>
@@ -111,3 +111,5 @@ const Mission = () => {
 };
 
 export default Mission;
+
+

@@ -58,23 +58,23 @@ const MonthlyGoal = () => {
   ];
 
   return (
-    <section className="relative py-16 lg:py-24 px-6 lg:px-8 bg-white">
-      <div className="max-w-8xl mx-auto">
+    <section className="relative py-10 lg:py-14 px-6 lg:px-8 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          className="flex flex-col lg:flex-row justify-between items-start gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16"
+          className="flex flex-col lg:flex-row justify-between items-start gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="flex-1">
-            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight">
               3 Hours a Month, <span className="sm:block">We Handle All</span>
             </h2>
           </div>
           <div className="flex-1 max-w-xl">
-            <p className="text-sm sm:text-base lg:text-2xl text-[#404040] leading-relaxed">
+            <p className="text-sm sm:text-base lg:text-base text-[#404040] leading-relaxed">
               Spend just a few hours recording your raw footage. Our team edits,
               captions, optimizes, and delivers platform-ready clips so you can
               focus on growth.
@@ -87,7 +87,7 @@ const MonthlyGoal = () => {
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              className={`${service.bgColor} rounded-3xl p-6 sm:p-8 lg:p-10 flex flex-col min-h-80 sm:min-h-90 lg:min-h-100 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
+              className={`${service.bgColor} rounded-2xl p-6 lg:p-7 flex flex-col min-h-56 lg:min-h-60 transition-transform duration-300 hover:scale-[1.02] hover:shadow-xl`}
               initial={{ opacity: 0, y: 35, scale: 0.97 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -98,15 +98,15 @@ const MonthlyGoal = () => {
               }}
             >
               {/* Icon */}
-              <div className="mb-8">
+              <div className="mb-4">
                 <div
-                  className={`${service.iconBgColor} w-16 h-16 rounded-full flex items-center justify-center`}
+                  className={`${service.iconBgColor} w-10 h-10 rounded-full flex items-center justify-center`}
                 >
                   <Image
                     src={service.icon}
                     alt={service.title}
-                    width={26}
-                    height={26}
+                    width={24}
+                    height={24}
                     className="object-contain"
                   />
                 </div>
@@ -114,14 +114,14 @@ const MonthlyGoal = () => {
 
               {/* Title */}
               <h3
-                className={`text-2xl lg:text-3xl font-bold ${service.textColor} mb-6 leading-tight`}
+                className={`text-xl lg:text-2xl font-bold ${service.textColor} mb-4 leading-tight`}
               >
                 {service.title}
               </h3>
 
               {/* Description */}
               <p
-                className={`text-sm lg:text-base ${service.textColor} ${
+                className={`text-xs lg:text-sm ${service.textColor} ${
                   service.textColor === "text-white"
                     ? "opacity-90"
                     : "opacity-80"
@@ -138,3 +138,4 @@ const MonthlyGoal = () => {
 };
 
 export default MonthlyGoal;
+

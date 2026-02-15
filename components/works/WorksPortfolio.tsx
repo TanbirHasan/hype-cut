@@ -81,6 +81,74 @@ const reelsData: VideoItem[] = [
   },
 ];
 
+// Saas data (landscape videos)
+const saasData: VideoItem[] = [
+  {
+    id: 1,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/BigBuckBunny.jpg",
+    title: "SaaS Product Demo",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+  },
+  {
+    id: 2,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ElephantsDream.jpg",
+    title: "Platform Walkthrough",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+  },
+  {
+    id: 3,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerBlazes.jpg",
+    title: "Feature Highlight Reel",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+  },
+  {
+    id: 4,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerEscapes.jpg",
+    title: "Customer Success Story",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+  },
+  {
+    id: 5,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerFun.jpg",
+    title: "Onboarding Tutorial",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+  },
+  {
+    id: 6,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerJoyrides.jpg",
+    title: "Integration Showcase",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
+  {
+    id: 7,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/ForBiggerMeltdowns.jpg",
+    title: "Dashboard Overview",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
+  },
+  {
+    id: 8,
+    thumbnail:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/Sintel.jpg",
+    title: "Analytics Deep Dive",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+  },
+];
+
 // Videos data (landscape videos)
 const videosData: VideoItem[] = [
   {
@@ -163,7 +231,7 @@ const ReelCard = memo(function ReelCard({
 
   return (
     <div className="group/card cursor-pointer" onClick={handleClick}>
-      <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="relative rounded-2xl overflow-hidden h-112.5 bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
         <Image
           src={video.thumbnail}
           alt={video.title}
@@ -173,12 +241,12 @@ const ReelCard = memo(function ReelCard({
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity duration-300" />
 
         {/* Play button overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center transition-all duration-300 scale-90 group-hover/card:scale-100 shadow-2xl">
-            <Play className="w-7 h-7 text-[#750037] fill-[#750037] ml-1" />
+            <Play className="w-7 h-7 text-[#3B4C9A] fill-[#3B4C9A] ml-1" />
           </div>
         </div>
 
@@ -207,7 +275,7 @@ const VideoCard = memo(function VideoCard({
 
   return (
     <div className="group/card cursor-pointer" onClick={handleClick}>
-      <div className="relative rounded-2xl overflow-hidden aspect-[16/9] bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="relative rounded-2xl overflow-hidden h-112.5 bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
         <Image
           src={video.thumbnail}
           alt={video.title}
@@ -217,12 +285,12 @@ const VideoCard = memo(function VideoCard({
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent opacity-80 group-hover/card:opacity-100 transition-opacity duration-300" />
 
         {/* Play button overlay */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
           <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center transition-all duration-300 scale-90 group-hover/card:scale-100 shadow-2xl">
-            <Play className="w-9 h-9 text-[#750037] fill-[#750037] ml-1" />
+            <Play className="w-9 h-9 text-[#3B4C9A] fill-[#3B4C9A] ml-1" />
           </div>
         </div>
 
@@ -263,7 +331,7 @@ const VideoDialog = memo(function VideoDialog({
         {/* Glass morphism container */}
         <div className="relative bg-black/95 backdrop-blur-xl rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
           {/* Decorative gradient border effect */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#750037]/20 via-transparent to-purple-500/20 pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#750037]/20 via-transparent to-purple-500/20 pointer-events-none" />
 
           {/* Close button - positioned outside */}
           <button
@@ -278,7 +346,7 @@ const VideoDialog = memo(function VideoDialog({
           <div className="relative">
             {/* Loading State with elegant spinner */}
             {isLoading && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-black/80 to-black/60 z-20 backdrop-blur-sm">
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-linear-to-br from-black/80 to-black/60 z-20 backdrop-blur-sm">
                 <div className="relative">
                   <Loader2 className="w-16 h-16 text-[#750037] animate-spin" />
                   <div className="absolute inset-0 w-16 h-16 border-4 border-[#750037]/20 rounded-full animate-ping" />
@@ -309,7 +377,7 @@ const VideoDialog = memo(function VideoDialog({
 
             {/* Enhanced Title Bar with glass effect */}
             {video && !isLoading && (
-              <div className="relative bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 backdrop-blur-md border-t border-white/5">
+              <div className="relative bg-linear-to-t from-black/90 via-black/60 to-transparent p-6 backdrop-blur-md border-t border-white/5">
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
                     <h3 className="text-white font-bold text-xl mb-1 tracking-tight">
@@ -345,7 +413,7 @@ const ReelsGrid = memo(function ReelsGrid({
   onPlay: (video: VideoItem) => void;
 }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
       {videos.map((video) => (
         <ReelCard key={video.id} video={video} onPlay={onPlay} />
       ))}
@@ -362,7 +430,7 @@ const VideosGrid = memo(function VideosGrid({
   onPlay: (video: VideoItem) => void;
 }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
       {videos.map((video) => (
         <VideoCard key={video.id} video={video} onPlay={onPlay} />
       ))}
@@ -375,6 +443,7 @@ const WorksPortfolio = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [visibleReels, setVisibleReels] = useState(8);
   const [visibleVideos, setVisibleVideos] = useState(8);
+  const [visibleSaas, setVisibleSaas] = useState(8);
 
   const handlePlayVideo = useCallback((video: VideoItem) => {
     setSelectedVideo(video);
@@ -394,20 +463,23 @@ const WorksPortfolio = () => {
     setVisibleVideos((prev) => prev + 8);
   }, []);
 
+  const loadMoreSaas = useCallback(() => {
+    setVisibleSaas((prev) => prev + 8);
+  }, []);
+
   const displayedReels = reelsData.slice(0, visibleReels);
   const displayedVideos = videosData.slice(0, visibleVideos);
+  const displayedSaas = saasData.slice(0, visibleSaas);
 
   return (
-    <section className="py-16 lg:py-24 px-6 lg:px-8 bg-gradient-to-br from-[#FAF4F8] via-[#FFF5FB] to-[#F8F0F5]">
-      <div className="max-w-8xl mx-auto">
+    <section className="pt-8 lg:pt-12 pb-16 lg:pb-24 px-6 lg:px-8 bg-linear-to-br from-[#FAF4F8] via-[#FFF5FB] to-[#F8F0F5]">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-[clamp(48px,8vw,92px)] font-semibold text-[#121116] mb-4 leading-[0.98] tracking-[-0.02em]">
-            Our Creative
-            <br />
-            Portfolio
+        <div className="text-center mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold text-[#121116] mb-3 leading-tight tracking-[-0.02em]">
+            Our Creative Portfolio
           </h1>
-          <p className="text-base lg:text-lg text-[#404040] max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm lg:text-base text-[#404040] max-w-xl mx-auto leading-relaxed">
             Explore our collection of design & creative works crafted with
             passion, precision, and purpose.
           </p>
@@ -415,7 +487,7 @@ const WorksPortfolio = () => {
 
         {/* Tabs */}
         <Tabs defaultValue="reels" className="w-full">
-          <div className="flex justify-center mb-10">
+          <div className="flex justify-center mb-6">
             <TabsList className="bg-transparent p-0 gap-3">
               <TabsTrigger
                 value="reels"
@@ -429,6 +501,12 @@ const WorksPortfolio = () => {
               >
                 Videos
               </TabsTrigger>
+              <TabsTrigger
+                value="saas"
+                className="px-8 py-3 text-base rounded-full data-[state=active]:bg-[#750037] data-[state=active]:text-white data-[state=inactive]:bg-white data-[state=inactive]:text-[#121116] data-[state=inactive]:border data-[state=inactive]:border-gray-200 transition-colors font-medium"
+              >
+                Saas
+              </TabsTrigger>
             </TabsList>
           </div>
 
@@ -440,7 +518,7 @@ const WorksPortfolio = () => {
               <div className="flex justify-center mt-12">
                 <button
                   onClick={loadMoreReels}
-                  className="px-8 py-3 bg-gradient-to-r from-[#750037] to-[#5a002a] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  className="px-8 py-3 bg-linear-to-r from-[#750037] to-[#5a002a] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
                   Load More
                 </button>
@@ -456,7 +534,23 @@ const WorksPortfolio = () => {
               <div className="flex justify-center mt-12">
                 <button
                   onClick={loadMoreVideos}
-                  className="px-8 py-3 bg-gradient-to-r from-[#750037] to-[#5a002a] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                  className="px-8 py-3 bg-linear-to-r from-[#750037] to-[#5a002a] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+                >
+                  Load More
+                </button>
+              </div>
+            )}
+          </TabsContent>
+
+          {/* Saas Tab Content */}
+          <TabsContent value="saas" className="mt-0">
+            <VideosGrid videos={displayedSaas} onPlay={handlePlayVideo} />
+
+            {visibleSaas < saasData.length && (
+              <div className="flex justify-center mt-12">
+                <button
+                  onClick={loadMoreSaas}
+                  className="px-8 py-3 bg-linear-to-r from-[#750037] to-[#5a002a] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
                 >
                   Load More
                 </button>
