@@ -58,7 +58,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-4">
             <Button
               asChild
-              className="bg-[#EA1C31] text-white rounded-full px-5 py-2 h-auto font-medium transition-all duration-200 shadow-md hover:shadow-lg"
+              className="bg-[#EA1C31] hover:bg-[#b21726] text-white rounded-full px-5 py-2 h-auto font-medium transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Link href="/contact-us" className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
