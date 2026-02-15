@@ -91,7 +91,7 @@ const Content = () => {
             </h2>
           </div>
           <div className="max-w-md">
-            <p className="text-sm lg:text-base text-[#404040] leading-relaxed">
+            <p className="text-lg text-[#404040] leading-relaxed">
               Editing, scripting, publishing, and more — all crafted to keep
               your brand consistent and your audience engaged.
             </p>
@@ -157,4 +157,3 @@ const Content = () => {
 };
 
 export default Content;
-

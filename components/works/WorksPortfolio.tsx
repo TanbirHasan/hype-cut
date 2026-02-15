@@ -231,7 +231,7 @@ const ReelCard = memo(function ReelCard({
 
   return (
     <div className="group/card cursor-pointer" onClick={handleClick}>
-      <div className="relative rounded-2xl overflow-hidden h-112.5 bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="relative rounded-2xl overflow-hidden h-64 sm:h-72 lg:h-80 bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
         <Image
           src={video.thumbnail}
           alt={video.title}
@@ -245,13 +245,13 @@ const ReelCard = memo(function ReelCard({
 
         {/* Play button overlay */}
         <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center transition-all duration-300 scale-90 group-hover/card:scale-100 shadow-2xl">
-            <Play className="w-7 h-7 text-[#3B4C9A] fill-[#3B4C9A] ml-1" />
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center transition-all duration-300 scale-90 group-hover/card:scale-100 shadow-2xl">
+            <Play className="w-5 h-5 text-[#3B4C9A] fill-[#3B4C9A] ml-0.5" />
           </div>
         </div>
 
         {/* Title overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-0 transition-transform duration-300">
+        <div className="absolute bottom-0 left-0 right-0 p-3 transform translate-y-0 transition-transform duration-300">
           <h3 className="text-white font-bold text-sm lg:text-base leading-tight drop-shadow-lg">
             {video.title}
           </h3>
@@ -275,7 +275,7 @@ const VideoCard = memo(function VideoCard({
 
   return (
     <div className="group/card cursor-pointer" onClick={handleClick}>
-      <div className="relative rounded-2xl overflow-hidden h-112.5 bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="relative rounded-2xl overflow-hidden h-48 sm:h-52 lg:h-60 bg-gray-200 shadow-md hover:shadow-xl transition-shadow duration-300">
         <Image
           src={video.thumbnail}
           alt={video.title}
@@ -289,14 +289,14 @@ const VideoCard = memo(function VideoCard({
 
         {/* Play button overlay */}
         <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300">
-          <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center transition-all duration-300 scale-90 group-hover/card:scale-100 shadow-2xl">
-            <Play className="w-9 h-9 text-[#3B4C9A] fill-[#3B4C9A] ml-1" />
+          <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center transition-all duration-300 scale-90 group-hover/card:scale-100 shadow-2xl">
+            <Play className="w-7 h-7 text-[#3B4C9A] fill-[#3B4C9A] ml-0.5" />
           </div>
         </div>
 
         {/* Title overlay */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-0 transition-transform duration-300">
-          <h3 className="text-white font-bold text-lg lg:text-xl leading-tight drop-shadow-lg">
+        <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-0 transition-transform duration-300">
+          <h3 className="text-white font-bold text-base lg:text-lg leading-tight drop-shadow-lg">
             {video.title}
           </h3>
         </div>

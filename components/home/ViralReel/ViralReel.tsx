@@ -128,7 +128,7 @@ const ViralReel = () => {
             </h2>
           </div>
           <div className="max-w-md">
-            <p className="text-sm sm:text-base lg:text-base text-[#404040] leading-relaxed">
+            <p className="text-lg text-[#404040] leading-relaxed">
               We craft engaging, social-ready reels designed to boost visibility
               and engagement on every platform.
             </p>

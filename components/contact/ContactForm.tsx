@@ -89,7 +89,7 @@ const ContactForm = () => {
           return undefined;
       }
     },
-    []
+    [],
   );
 
   // Validate all fields
@@ -104,7 +104,7 @@ const ContactForm = () => {
 
     const serviceError = validateField(
       "serviceRequired",
-      formData.serviceRequired
+      formData.serviceRequired,
     );
     if (serviceError) newErrors.serviceRequired = serviceError;
 
@@ -113,7 +113,7 @@ const ContactForm = () => {
 
     const detailsError = validateField(
       "projectDetails",
-      formData.projectDetails
+      formData.projectDetails,
     );
     if (detailsError) newErrors.projectDetails = detailsError;
 
@@ -124,7 +124,7 @@ const ContactForm = () => {
     (
       e: ChangeEvent<
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
+      >,
     ) => {
       const { name, value } = e.target;
       setFormData((prev) => ({
@@ -141,14 +141,14 @@ const ContactForm = () => {
         }));
       }
     },
-    [touched, validateField]
+    [touched, validateField],
   );
 
   const handleBlur = useCallback(
     (
       e: ChangeEvent<
         HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-      >
+      >,
     ) => {
       const { name, value } = e.target;
       setTouched((prev) => ({ ...prev, [name]: true }));
@@ -159,7 +159,7 @@ const ContactForm = () => {
         [name]: error,
       }));
     },
-    [validateField]
+    [validateField],
   );
 
   const handleSubmit = useCallback(
@@ -212,12 +212,11 @@ const ContactForm = () => {
         setIsSubmitting(false);
       }
     },
-    [formData, validateForm]
+    [formData, validateForm],
   );
 
   // Helper to check if field has error
-  const hasError = (field: keyof FormErrors) =>
-    touched[field] && errors[field];
+  const hasError = (field: keyof FormErrors) => touched[field] && errors[field];
 
   return (
     <section className="py-16 lg:py-24 px-6 lg:px-8 bg-[#FAF4F8]">
@@ -225,7 +224,7 @@ const ContactForm = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Side - Info */}
           <div className="lg:pr-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#121116] leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#121116] leading-tight mb-6">
               Get in Touch
               <br />
               with Hypecut
@@ -239,10 +238,7 @@ const ContactForm = () => {
               back to you as soon as possible.
             </p>
 
-            {/* Info Section */}
             <div>
-              <h2 className="text-lg font-bold text-[#121116] mb-4">(INFO)</h2>
-
               <div className="space-y-3 text-[#404040] text-base">
                 <p>
                   <span className="text-[#121116] font-medium">A:</span> 124
@@ -486,4 +482,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-

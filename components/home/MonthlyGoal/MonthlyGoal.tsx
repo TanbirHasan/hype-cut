@@ -60,9 +60,8 @@ const MonthlyGoal = () => {
   return (
     <section className="relative py-10 lg:py-14 px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <motion.div
-          className="flex flex-col lg:flex-row justify-between items-start gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8"
+          className="flex flex-col lg:flex-row justify-between items-end gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -74,7 +73,7 @@ const MonthlyGoal = () => {
             </h2>
           </div>
           <div className="flex-1 max-w-xl">
-            <p className="text-sm sm:text-base lg:text-base text-[#404040] leading-relaxed">
+            <p className="text-lg text-[#404040] leading-relaxed">
               Spend just a few hours recording your raw footage. Our team edits,
               captions, optimizes, and delivers platform-ready clips so you can
               focus on growth.
@@ -82,7 +81,6 @@ const MonthlyGoal = () => {
           </div>
         </motion.div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           {services.map((service, index) => (
             <motion.div
@@ -138,4 +136,3 @@ const MonthlyGoal = () => {
 };
 
 export default MonthlyGoal;
-

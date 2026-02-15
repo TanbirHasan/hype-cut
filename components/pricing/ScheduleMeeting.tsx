@@ -9,10 +9,10 @@ const ConsultationBooking = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#1A1A1A] mb-3">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#1A1A1A] mb-3">
             Let&apos;s Work Together
           </h1>
-          <p className="text-base text-[#666666]">
+          <p className="text-sm sm:text-base text-[#666666]">
             Schedule a consultation today and start your journey
             <br />
             toward a borderless business future.

@@ -29,18 +29,16 @@ const Header = () => {
     <header>
       <div className="px-6 lg:px-12">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center px-4 py-1.5 rounded-full">
             <Image
               src="/images/common/website-logo.png"
               alt="Website Logo"
-              width={160}
+              width={120}
               height={36}
-              className="h-9 w-auto"
+              className="h-7 w-auto"
             />
           </Link>
 
-          {/* Navigation */}
           <nav className="hidden lg:flex items-center gap-2 bg-slate-50 px-2 py-1.5 rounded-full">
             {navLinks.map((link) => (
               <Link
@@ -57,7 +55,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Book a Call Button - Desktop */}
           <div className="hidden lg:flex items-center gap-4">
             <Button
               asChild
@@ -70,7 +67,6 @@ const Header = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu */}
           <MobileMenu />
         </div>
       </div>

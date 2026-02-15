@@ -3,7 +3,7 @@ import ConsultationBooking from "@/components/pricing/ScheduleMeeting";
 
 export default function Pricing() {
   return (
-    <main className="bg-[#FAF4F8] py-16 lg:py-24 px-6 lg:px-8">
+    <main className="bg-[#FAF4F8] py-10 lg:py-14 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <PricingHeader />
         <PricingPlans />

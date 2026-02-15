@@ -4,7 +4,10 @@
       "Bash(npx next build:*)",
       "Bash(powershell -Command \"\\(Get-Content ''e:\\\\hype-cut\\\\hype-cut\\\\components\\\\home\\\\ViralReel\\\\ViralReel.tsx'' -Raw\\) -replace ''text-3xl sm:text-4xl lg:text-6xl font-semibold text-\\\\[#121116\\\\] leading-tight'',''text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#121116] leading-tight'' | Set-Content ''e:\\\\hype-cut\\\\hype-cut\\\\components\\\\home\\\\ViralReel\\\\ViralReel.tsx'' -NoNewline\")",
       "Bash(powershell -Command:*)",
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)",
+      "Bash(npx next dev --help:*)"
     ]
   }
 }
