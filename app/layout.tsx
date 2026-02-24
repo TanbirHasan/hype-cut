@@ -3,6 +3,7 @@ import { Onest } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 const onest = Onest({
   variable: "--font-onest",
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${onest.variable} antialiased bg-[#FAF4F8]`}>
+        <NextTopLoader color="#750037" showSpinner={false} />
         <Header />
         {children}
         <Footer />

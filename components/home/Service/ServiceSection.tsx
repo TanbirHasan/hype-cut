@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import VideoPlayer from "@/components/ui/video-player";
 import VideoDialog from "@/components/ui/video-dialog";
-import { Play } from "lucide-react";
 import {
   motion,
   useInView,
@@ -12,6 +11,7 @@ import {
   animate,
   useScroll,
 } from "framer-motion";
+import imagePreview from "@/assets/home/service/image-preview.png";
 import Image from "next/image";
 
 const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
@@ -32,7 +32,12 @@ const CountUp = ({ target, suffix }: { target: number; suffix: string }) => {
     }
   }, [isInView, motionValue, target]);
 
-  return <span ref={ref}>{display}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
 };
 
 const ServicesSection = () => {
@@ -54,12 +59,20 @@ const ServicesSection = () => {
   const textOpacity = useTransform(
     scrollYProgress,
     [0, 0.18, 0.36, 0.5],
-    [0, 1, 1, 0]
+    [0, 1, 1, 0],
   );
   const textY = useTransform(scrollYProgress, [0, 0.18, 0.5], [28, 0, -20]);
-  const iconScale = useTransform(scrollYProgress, [0, 0.2, 0.45], [0.75, 1, 0.85]);
+  const iconScale = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.45],
+    [0.75, 1, 0.85],
+  );
   const iconRotate = useTransform(scrollYProgress, [0, 0.22], [-8, 0]);
-  const iconOpacity = useTransform(scrollYProgress, [0, 0.18, 0.45], [0, 1, 0.7]);
+  const iconOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.45],
+    [0, 1, 0.7],
+  );
 
   const videoOpacity = useTransform(scrollYProgress, [0.34, 0.55], [0, 1]);
   const videoScale = useTransform(scrollYProgress, [0.34, 0.72], [0.22, 1]);
@@ -74,19 +87,31 @@ const ServicesSection = () => {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container mx-auto max-w-6xl">
+      <div className=" px-0 mx-auto max-w-6xl">
         {/* Heading */}
-        <motion.div className="text-center mb-12" style={{ opacity: textOpacity, y: textY }}>
+        <motion.div
+          className="text-center mb-12"
+          style={{ opacity: textOpacity, y: textY }}
+        >
           <h2 className="text-[22px] sm:text-[28px] md:text-[34px] lg:text-[40px] font-semibold text-[#000000] leading-[1.35] max-w-[780px] mx-auto">
             We create, edit, and market videos whether{" "}
             <motion.span
-              className="inline-flex items-center justify-center w-[28px] h-[28px] sm:w-[34px] sm:h-[34px] md:w-[40px] md:h-[40px] lg:w-[46px] lg:h-[46px] bg-[#1a1a2e] rounded-lg mx-1 sm:mx-1.5 align-middle overflow-hidden"
-              style={{ scale: iconScale, rotate: iconRotate, opacity: iconOpacity }}
+              className="inline-flex items-center justify-center rounded-lg mx-1 sm:mx-1.5 align-middle overflow-hidden"
+              style={{
+                scale: iconScale,
+                rotate: iconRotate,
+                opacity: iconOpacity,
+              }}
             >
-              <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-5.5 lg:h-5.5 text-white fill-white" />
+              <Image
+                src={imagePreview}
+                alt="Preview"
+                width={126}
+                height={80}
+                className="object-cover"
+              />
             </motion.span>{" "}
-            filmed at your{" "}
-            <br className="hidden lg:inline" />
+            filmed at your <br className="hidden lg:inline" />
             place or sent by you.
           </h2>
         </motion.div>
@@ -108,10 +133,16 @@ const ServicesSection = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
                   onClick={() => setIsVideoOpen(true)}
-                  className="relative w-30 h-24 sm:w-45 sm:h-36 lg:w-58.5 lg:h-46.5 rounded-[24px] sm:rounded-[36px] lg:rounded-[48px] bg-white/15 border border-white/40 backdrop-blur-[12px] flex items-center justify-center cursor-pointer hover:bg-white/25 transition-all duration-300"
+                  className="relative w-18 h-14 sm:w-45 sm:h-36 lg:w-58.5 lg:h-46.5 rounded-3xl sm:rounded-[36px] lg:rounded-[48px] bg-white/15 border border-white/40 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-white/25 transition-all duration-300"
                   aria-label="Play video"
                 >
-                 <Image src="/play.png" alt="Play" width={71} height={84} />
+                  <Image
+                    src="/play.png"
+                    alt="Play"
+                    width={71}
+                    height={84}
+                    className="w-6 h-7 sm:w-[71px] sm:h-[84px]"
+                  />
                 </button>
               </div>
             </div>
@@ -168,4 +199,3 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
-

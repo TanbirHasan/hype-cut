@@ -7,7 +7,8 @@
       "Bash(powershell:*)",
       "Bash(git merge:*)",
       "Bash(git push:*)",
-      "Bash(npx next dev --help:*)"
+      "Bash(npx next dev --help:*)",
+      "Bash(npm install nextjs-toploader)"
     ]
   }
 }
