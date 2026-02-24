@@ -125,7 +125,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 sm:gap-6 mb-6 lg:mb-8">
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#121116] leading-tight">
               What Our
               <br />
               Clients Say

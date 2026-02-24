@@ -68,7 +68,7 @@ const MonthlyGoal = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div className="flex-1">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#121116] leading-tight">
               3 Hours a Month, <span className="sm:block">We Handle All</span>
             </h2>
           </div>

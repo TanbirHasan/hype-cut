@@ -121,7 +121,7 @@ const ViralReel = () => {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#121116] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#121116] leading-tight">
               Turn Moments
               <br />
               Into Viral Reels
